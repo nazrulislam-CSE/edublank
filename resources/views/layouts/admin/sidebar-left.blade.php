@@ -95,12 +95,12 @@
                 </li>
 
 
-                <li class="slide">
+                <li class="slide {{ Request::is('admin/courses*') ? 'is-expanded' : '' }}">
                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Course</span><i class="angle fe fe-chevron-down"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Course</a></li>
-                        <li><a class="slide-item" href="#">Course Add</a></li>
-                        <li><a class="slide-item" href="#">Course List</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/course/create') ? 'active' : '' }}" href="{{ route('admin.course.create')}}">Course Add</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/course/index') ? 'active' : '' }}" href="{{ route('admin.course.index')}}">Course List</a></li>
                     </ul>
                 </li>
 

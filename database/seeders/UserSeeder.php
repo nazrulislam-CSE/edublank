@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
                 [
                     'name' => 'Demo User',
                     'username' => 'demo',
+                    'role' => 'user',
                     'email' => 'demo@gmail.com',
                     'password' => Hash::make('demo1234'),
                     'show_password' => 'demo1234',
@@ -31,6 +32,7 @@ class UserSeeder extends Seeder
                 ],
                 [
                     'name' => 'Demo Staff',
+                    'role' => 'user',
                     'username' => 'demo-staff',
                     'email' => 'demostaff@gmail.com',
                     'password' => Hash::make('demo1234'),

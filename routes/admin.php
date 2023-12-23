@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\MenuBuilderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\InstructorController;
+use App\Http\Controllers\Admin\CourseController;
 
 
 Route::get('login', [AdminLoginController::class, 'viewLogin'])->name('login.view');
@@ -109,6 +110,18 @@ Route::middleware('admin')->group(function () {
         Route::post('/update/{id}', [InstructorController::class, 'update'])->name('instructor.update');
         Route::get('/delete/{id}', [InstructorController::class, 'destroy'])->name('instructor.delete');
         Route::get('/show/{id}', [InstructorController::class,'show'])->name('instructor.show');
+
+    });
+
+    /* ============> Course <=========== */
+    Route::prefix('courses')->group(function () {
+        Route::get('/index', [CourseController::class, 'index'])->name('course.index');
+        Route::get('/create', [CourseController::class, 'create'])->name('course.create');
+        Route::post('/store', [CourseController::class, 'store'])->name('course.store');
+        Route::get('/edit/{id}', [CourseController::class, 'edit'])->name('course.edit');
+        Route::post('/update/{id}', [CourseController::class, 'update'])->name('course.update');
+        Route::get('/delete/{id}', [CourseController::class, 'destroy'])->name('course.delete');
+        Route::get('/show/{id}', [CourseController::class,'show'])->name('course.show');
 
     });
   

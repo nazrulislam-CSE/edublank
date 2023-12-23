@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Course;
+use App\Models\User;
+use App\Models\Category;
 
 class CourseController extends Controller
 {
@@ -12,7 +15,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        $pageTitle = 'Course List';
+        return view('admin.courses.index', compact('courses', 'pageTitle'));
     }
 
     /**
@@ -20,7 +25,10 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        $instructors = User::where('role','Instructor')->latest()->get();
+        $categories = Category::all();
+        $pageTitle = 'Course Create';
+        return view('admin.courses.create', compact('instructors', 'categories', 'pageTitle'));
     }
 
     /**
@@ -28,7 +36,62 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'category_id' =>'required',
+            'instructor_id' =>'required',
+            'course_title' =>'required',
+            'course_name' =>'required',
+            'description' =>'required',
+            'video' =>'required',
+            'course_level' =>'required',
+            'course_lessons' =>'required',
+            'course_duration' =>'required',
+            'course_hours' =>'required',
+          'selling_price' =>'required',
+            'discount_price' =>'required',
+          'status' =>'required',
+          'course_image'=> 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+        ]);
+
+        $course = new Course;
+        $course->category_id = $request->category_id;
+        $course->instructor_id = $request->instructor_id;
+        $course->course_title = $request->course_title;
+        $course->course_name = $request->course_name;
+        $course->course_name_slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', strtolower($request->course_name_slug)));
+        $course->description = $request->description;
+        $course->video = $request->video;
+        $course->course_level = $request->course_level;
+        $course->course_lessons = $request->course_lessons;
+        $course->course_duration = $request->course_duration;
+        $course->course_hours = $request->course_hours;
+        $course->resources = $request->resources;
+        $course->certificate = $request->certificate;
+        $course->selling_price = $request->selling_price;
+        $course->discount_price = $request->discount_price;
+        $course->prerequisites = $request->prerequisites;
+        $course->bestseller = $request->bestseller;
+        $course->featured = $request->featured;
+        $course->highestrated = $request->highestrated;
+        $course->promo_code = mt_rand(1000, 9999);
+        // $course->discount_type = $request->discount_type;
+        $course->status = $request->status;
+        $course->save();
+
+        if ($request->file('course_image')) {
+            $file = $request->file('course_image');
+            @unlink(public_path('upload/course/'.$course->course_image));
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('upload/course'),$filename);
+            $course['course_image'] = $filename;
+        }
+
+        $course->save();
+
+        flash()->addSuccess("Course Created Successfully.");
+        $url = '/admin/courses/index';
+        return redirect($url);
+
     }
 
     /**
@@ -36,7 +99,9 @@ class CourseController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $course = Course::find($id);
+        $pageTitle = 'Course View';
+        return view('admin.courses.show', compact('course', 'pageTitle'));
     }
 
     /**
@@ -44,7 +109,11 @@ class CourseController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $course = Course::find($id);
+        $instructors = User::where('role','Instructor')->latest()->get();
+        $categories = Category::all();
+        $pageTitle = 'Course Edit';
+        return view('admin.courses.edit', compact('course','instructors','categories','pageTitle'));
     }
 
     /**
@@ -52,7 +121,43 @@ class CourseController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $course = Course::find($id);
+        $course->course_title = $request->course_title;
+        $course->course_name = $request->course_name;
+        $course->course_name_slug = strtolower(trim(preg_replace('/\s+/', '-', $request->course_name)));
+        $course->description = $request->description;
+        $course->video = $request->video;
+        $course->course_level = $request->course_level;
+        $course->course_lessons = $request->course_lessons;
+        $course->course_duration = $request->course_duration;
+        $course->course_hours = $request->course_hours;
+        $course->resources = $request->resources;
+        $course->certificate = $request->certificate;
+        $course->selling_price = $request->selling_price;
+        $course->discount_price = $request->discount_price;
+        $course->prerequisites = $request->prerequisites;
+        $course->bestseller = $request->bestseller;
+        $course->featured = $request->featured;
+        $course->highestrated = $request->highestrated;
+        $course->promo_code = rand(1,4);
+        $course->discount_type = $request->discount_type;
+        $course->status = $request->status;
+        $course->save();
+
+        if ($request->file('course_image')) {
+            $file = $request->file('course_image');
+            @unlink(public_path('upload/course/'.$course->course_image));
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('upload/course'),$filename);
+            $course['course_image'] = $filename;
+        }
+
+        $course->save();
+
+        flash()->addSuccess("Course Updated Successfully.");
+        $url = '/admin/courses/index';
+        return redirect($url);
+
     }
 
     /**
@@ -60,6 +165,22 @@ class CourseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $course = Course::find($id);
+
+        try {
+            if(file_exists($course->course_image)){
+                unlink($course->course_image);
+            }
+        } catch (Exception $e) {
+
+        }
+
+
+        $course->delete();
+        
+
+        flash()->addError("Course Deleted Successfully.");
+        $url = '/admin/courses/index';
+        return redirect($url);
     }
 }

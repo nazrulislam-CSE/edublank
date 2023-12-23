@@ -35,12 +35,13 @@ class InstructorController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->validate($request, [
             'username' =>'required',
             'email' =>'required|email',
             'password' => 'required',
             'phone' => 'required',
-            'photo'=>'required'
+            'photo'=> 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ]);
 
 
@@ -53,10 +54,10 @@ class InstructorController extends Controller
             'phone' => $request->phone,
             'present_address' => $request->present_address,
             'designation' => $request->designation,
-            'facebook' => $request->facebook,
-            'linkedin' => $request->linkedin,
-            'twitter' => $request->twitter,
-            'instagram' => $request->instagram,
+            'facebook_url' => $request->facebook_url,
+            'linkedin_url' => $request->linkedin_url,
+            'twitter_url' => $request->twitter_url,
+            'instagram_url' => $request->instagram_url,
             'about' => $request->about,
             'status' => $request->status,
             'role' => 'instructor',
@@ -112,10 +113,10 @@ class InstructorController extends Controller
         $instructor->phone = $request->phone;
         $instructor->present_address = $request->present_address;
         $instructor->designation = $request->designation;
-        $instructor->facebook = $request->facebook;
-        $instructor->linkedin = $request->linkedin;
-        $instructor->twitter = $request->twitter;
-        $instructor->instagram = $request->instagram;
+        $instructor->facebook_url = $request->facebook_url;
+        $instructor->linkedin_url = $request->linkedin_url;
+        $instructor->twitter_url = $request->twitter_url;
+        $instructor->instagram_url = $request->instagram_url;
         $instructor->about = $request->about;
         $instructor->status = $request->status;
         $instructor->role = 'instructor';

@@ -108,7 +108,7 @@
                         @error('designation') <span class="text-danger">{{ $message }}</span> @enderror
                          <div class="input-group">
                              <span class="input-group-text" title="Instructor Designation " id="basic-addon1"><i class="fas fa-user-shield"></i></span>
-                             <input type="text" value="" class=" form-control" name="designation" placeholder="Instructor Designation">
+                             <input type="text" class=" form-control" name="designation" placeholder="Instructor Designation">
                          </div>
                      </div>
 
@@ -131,38 +131,38 @@
                      </div>
 
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                        <label for="facebook"> Facebook Link: <span class="text-danger"></span></label>
-                        @error('facebook') <span class="text-danger">{{ $message }}</span> @enderror
+                        <label for="facebook_url"> Facebook Link: <span class="text-danger"></span></label>
+                        @error('facebook_url') <span class="text-danger">{{ $message }}</span> @enderror
                          <div class="input-group">
                              <span class="input-group-text" title="Instructor Facebook Link" id="basic-addon1"><i class="fab fa-facebook-square"></i></span>
-                             <input type="text" value="" class=" form-control" name="facebook" placeholder="Instructor Facebook Link">
+                             <input type="text" class=" form-control" name="facebook_url" placeholder="Instructor Facebook Link">
                          </div>
                      </div>
 
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                        <label for="linkedin"> Linkedin Link: <span class="text-danger"></span></label>
-                        @error('linkedin') <span class="text-danger">{{ $message }}</span> @enderror
+                        <label for="linkedin_url"> Linkedin Link: <span class="text-danger"></span></label>
+                        @error('linkedin_url') <span class="text-danger">{{ $message }}</span> @enderror
                          <div class="input-group">
                              <span class="input-group-text" title="Instructor Linkedin Link" id="basic-addon1"><i class="fab fa-linkedin"></i></span>
-                             <input type="text" value="" class=" form-control" name="linkedin" placeholder="Instructor Linkedin Link">
+                             <input type="text"class=" form-control" name="linkedin_url" placeholder="Instructor Linkedin Link">
                          </div>
                      </div>
 
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                        <label for="twitter"> Twitter Link: <span class="text-danger"></span></label>
-                        @error('twitter') <span class="text-danger">{{ $message }}</span> @enderror
+                        <label for="twitter_url"> Twitter Link: <span class="text-danger"></span></label>
+                        @error('twitter_url') <span class="text-danger">{{ $message }}</span> @enderror
                          <div class="input-group">
                              <span class="input-group-text" title="Instructor Twitter Link" id="basic-addon1"><i class="fab fa-twitter"></i></span>
-                             <input type="text" value="" class=" form-control" name="twitter" placeholder="Instructor Twitter Link">
+                             <input type="text" value="" class=" form-control" name="twitter_url" placeholder="Instructor Twitter Link">
                          </div>
                      </div>
 
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                        <label for="instagram"> Instagram Link: <span class="text-danger"></span></label>
-                        @error('instagram') <span class="text-danger">{{ $message }}</span> @enderror
+                        <label for="instagram_url"> Instagram Link: <span class="text-danger"></span></label>
+                        @error('instagram_url') <span class="text-danger">{{ $message }}</span> @enderror
                          <div class="input-group">
                              <span class="input-group-text" title="Instructor Instagram Link" id="basic-addon1"><i class="fab fa-instagram"></i></span>
-                             <input type="text" value="" class=" form-control" name="instagram" placeholder="Instructor Instagram Link">
+                             <input type="text" value="" class=" form-control" name="instagram_url" placeholder="Instructor Instagram Link">
                          </div>
                      </div>
 

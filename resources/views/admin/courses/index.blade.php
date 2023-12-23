@@ -48,11 +48,11 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header border-bottom d-flex justify-content-between align-items-center">
-                            <p class="card-title my-0">{{ $pageTitle ?? 'Page Title'}} <span class="badge bg-danger side-badge" style="font-size:17px;">{{ count($instructors) }}</span> </p>
+                            <p class="card-title my-0">{{ $pageTitle ?? 'Page Title'}} <span class="badge bg-danger side-badge" style="font-size:17px;">{{ count($courses) }}</span> </p>
 
                             <div class="d-flex">
-                                <a href="{{ route('admin.instructor.create')}}" class="btn btn-success me-2">
-                                    <i class="fas fa-list d-inline"></i> Add Now Instructor
+                                <a href="{{ route('admin.course.create')}}" class="btn btn-success me-2">
+                                    <i class="fas fa-list d-inline"></i> Add Now Course
                                 </a>
                             </div>
                         </div>
@@ -63,39 +63,35 @@
                                         <tr>
                                             <th class="border-bottom-0">SL</th>
                                             <th class="border-bottom-0">Photo</th>
-                                            <th class="border-bottom-0">Name</th>
-                                            <th class="border-bottom-0">UserName</th>
-                                            <th class="border-bottom-0">Email</th>
-                                            <th class="border-bottom-0">Phone</th>
-                                            <th class="border-bottom-0">Designation</th>
+                                            <th class="border-bottom-0">Category</th>
+                                            <th class="border-bottom-0">Instructor</th>
+                                            <th class="border-bottom-0">Price</th>
                                             <th class="border-bottom-0">Status</th>
                                             <th class="border-bottom-0">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($instructors as $key=> $instructor)
+                                        @foreach ($courses as $key=> $course)
                                         <tr>
                                             <td class="col-1">{{ $key+1 }}</td>
                                             <td>
-                                                <img src="{{ (!empty($instructor->image)) ? url('upload/instructor/'.$instructor->image):url('upload/no_image.jpg') }}" width="80" alt="image" class="img-fluid">
+                                                <img src="{{ (!empty($course->course_image)) ? url('upload/course/'.$course->course_image):url('upload/no_image.jpg') }}" width="80" alt="image" class="img-fluid">
                                             </td>
                                             </td>
-                                            <td>{{ $instructor->name ?? 'Null'}}</td>
-                                             <td>{{ $instructor->username?? 'Null'}}</td>
-                                            <td>{{ $instructor->email ?? 'Null'}}</td>
-                                            <td>{{ $instructor->phone ?? 'Null'}}</td>
-                                            <td>{{ $instructor->designation ?? 'Null'}}</td>
+                                            <td>{{ $course->category->name ?? 'Null'}}</td>
+                                             <td>{{ $course->user->name?? 'Null'}}</td>
+                                            <td>{{ $course->selling_price ?? 'Null'}}</td>
                                             <td>
-                                                @if($instructor->status == 1)
+                                                @if($course->status == 1)
                                                     <a href="#" class="badge bg-pill bg-success">Active</a>
                                                 @else
                                                     <a href="#" class="badge bg-pill bg-danger">Disable</a>
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.instructor.show',$instructor->id)}}" class="btn btn-success btn-sm mr-2"><i class="fas fa-eye"></i></a>
-                                                <a href="{{ route('admin.instructor.edit',$instructor->id)}}" class="btn btn-primary btn-sm mr-2"><i class="fas fa-edit"></i></a>
-                                                <a href="{{ route('admin.instructor.delete',$instructor->id)}}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
+                                                <a href="{{ route('admin.course.show',$course->id)}}" class="btn btn-success btn-sm mr-2"><i class="fas fa-eye"></i></a>
+                                                <a href="{{ route('admin.course.edit',$course->id)}}" class="btn btn-primary btn-sm mr-2"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ route('admin.course.delete',$course->id)}}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         @endforeach
