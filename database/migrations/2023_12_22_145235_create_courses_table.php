@@ -27,14 +27,14 @@ return new class extends Migration
             $table->string('course_hours')->nullable();
             $table->string('resources')->nullable();
             $table->string('certificate')->nullable();
-            $table->integer('selling_price')->nullable();
-            $table->integer('discount_price')->nullable();
+            $table->double('regular_price')->default(0.00);
+            $table->double('discount_price')->default(0.00);
+            $table->unsignedTinyInteger('discount_type')->default(1)->comment('1=>Flat, 2=>Percentage');
             $table->text('prerequisites')->nullable();
             $table->string('bestseller')->nullable();
             $table->string('featured')->nullable();
             $table->string('highestrated')->nullable();
             $table->string('promo_code', 50)->nullable();
-            $table->unsignedTinyInteger('discount_type')->default(1)->comment('1=>Flat, 2=>Percentage');
             $table->tinyInteger('status')->default(0)->comment('0=Inactive','1=Active'); 
             $table->timestamps();
         });

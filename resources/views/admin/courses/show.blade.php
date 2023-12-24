@@ -49,8 +49,8 @@
     <div class="card-header border-bottom d-flex justify-content-between align-items-center">
        <p class="card-title my-0">{{ $pageTitle ?? 'Page Title'}}</p>
        <div class="d-flex">
-           <a href="{{ route('admin.instructor.index')}}" class="btn btn-danger me-2">
-               <i class="fas fa-list d-inline"></i> Instructor List
+           <a href="{{ route('admin.course.index')}}" class="btn btn-danger me-2">
+               <i class="fas fa-list d-inline"></i> Course List
            </a>
        </div>
    </div>
@@ -59,68 +59,88 @@
           <table class="table table-bordered">
              <tr>
                 <td> Name</td>
+                <td>{{ $course->course_name ?? 'NULL' }}</td>
+             </tr>
+             <tr>
+                <td> Title</td>
+                <td>{{ $course->course_title ?? 'NULL' }}</td>
+             </tr>
+             <tr>
+                <td> Category Name</td>
+                <td>{{ $course->category->name ?? 'NULL' }}</td>
+             </tr>
+            @php
+                $instructor = App\Models\User::where('id',$course->instructor_id)->first(); 
+            @endphp
+             <tr>
+                <td> Instructor Name</td>
                 <td>{{ $instructor->name ?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td> Username</td>
-                <td>{{ $instructor->username ?? 'NULL' }}</td>
+                <td> Description</td>
+                <td>{{ $course->description ?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td> Email</td>
-                <td>{{ $instructor->email ?? 'NULL' }}</td>
+                <td> Video</td>
+                <td>{{ $course->video ?? 'NULL' }}</td>
              </tr>
              <tr>
-
-                <td> Phone</td>
-                <td>{{ $instructor->phone?? 'NULL' }}</td>
+                <td> Level</td>
+                <td>{{ $course->course_level ?? 'NULL' }}</td>
              </tr>
              <tr>
-
-                <td> Designation</td>
-                <td>{{ $instructor->designation?? 'NULL' }}</td>
+                <td> Lessons</td>
+                <td>{{ $course->course_lessons ?? 'NULL' }}</td>
              </tr>
              <tr>
-
-                <td> Address</td>
-                <td>{{ $instructor->present_address?? 'NULL' }}</td>
+                <td> Duration</td>
+                <td>{{ $course->course_duration ?? 'NULL' }}</td>
              </tr>
              <tr>
-
-                <td> Facebook Url</td>
-                <td>{{ $instructor->facebook_url?? 'NULL' }}</td>
-             </tr>
-
-             <tr>
-
-                <td> Linkedin Url</td>
-                <td>{{ $instructor->linkedin_url?? 'NULL' }}</td>
+                <td> Hours</td>
+                <td>{{ $course->course_hours ?? 'NULL' }}</td>
              </tr>
              <tr>
-
-                <td> Twitter Url</td>
-                <td>{{ $instructor->twitter_url?? 'NULL' }}</td>
+                <td> Resources</td>
+                <td>{{ $course->resources ?? 'NULL' }}</td>
              </tr>
              <tr>
-
-                <td> Instagram Url</td>
-                <td>{{ $instructor->instagram_url?? 'NULL' }}</td>
+                <td> Certificate</td>
+                <td>{{ $course->certificate ?? 'NULL' }}</td>
              </tr>
              <tr>
-
-                <td> About</td>
-                <td>{{ $instructor->about?? 'NULL' }}</td>
+                <td> Promo Code</td>
+                <td>{{ $course->promo_code ?? '0' }}</td>
+             </tr>
+             <tr>
+                <td> Regular Price</td>
+                <td>৳{{ $course->regular_price ?? '0' }}</td>
+             </tr>
+             <tr>
+                <td>Discount Price</td>
+                <td>
+                   @if($course->discount_price > 0)
+                      @if($course->discount_type == 1)
+                         <span class="badge bg-info text-white">৳{{ $course->discount_price }} off</span>
+                      @elseif($course->discount_type == 2)
+                         <span class="badge bg-success text-white">{{ $course->discount_price }}% off</span>
+                      @endif
+                   @else
+                      <span class="badge bg-danger text-white">No Discount</span>
+                   @endif
+                </td>
              </tr>
              <tr>
 
                 <td> Photo</td>
                 <td>
-                    <img src="{{ (!empty($instructor->image)) ? url('upload/instructor/'.$instructor->image):url('upload/no_image.jpg') }}" width="80" alt="image" class="img-fluid">
+                    <img src="{{ (!empty($course->course_image)) ? url('upload/course/'.$course->course_image):url('upload/no_image.jpg') }}" width="80" alt="image" class="img-fluid">
                 </td>
              </tr>
              </tr>
              <td>Status</td>
              <td>
-                   @if ($instructor->status == 1)
+                   @if ($course->status == 1)
                    <span class="badge bg-pill bg-success">Active</span>
                    @else
                    <span class="badge bg-pill bg-success">Disable</span>

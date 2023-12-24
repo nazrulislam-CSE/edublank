@@ -123,22 +123,7 @@
                              <input type="text" min="0" value="" class=" form-control" name="certificate" placeholder="Course Certificate">
                          </div>
                     </div>
-                    <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                        <label for="selling_price">Selling Price: <span class="text-danger"></span></label>
-                        @error('selling_price') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
-                             <span class="input-group-text" title="Selling Price" id="basic-addon1">$</span>
-                             <input type="number" min="0" value="" class=" form-control" name="selling_price" placeholder="Enter Selling Price">
-                         </div>
-                    </div>
-                    <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                        <label for="discount_price">Discount Price: <span class="text-danger"></span></label>
-                        @error('discount_price') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
-                             <span class="input-group-text" title="Selling Price" id="basic-addon1">$</span>
-                             <input type="number" min="0" value="" class=" form-control" name="discount_price" placeholder="Enter Discount Price">
-                         </div>
-                    </div>
+                   
 
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                        <label for="featured">Featured:</label>
@@ -181,7 +166,7 @@
                     </div>
 
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                        <label for="instructor_id">Status:</label>
+                        <label for="instructor_id">Instructor:</label>
                         @error('instructor_id') <span class="text-danger">{{ $message }}</span> @enderror
                          <div class="input-group">
                              <span class="input-group-text" title="Name" id="basic-addon1"><i class="fas fa-user-tie" title="Name"></i></span>
@@ -202,6 +187,7 @@
                              <input type="file" name="course_image" id="course_image" class="form-control bg-white">
                          </div>
                     </div>
+                    
  
                     <div class="form-group col-xl-3 col-lg-3 col-md-6">
                         
@@ -217,6 +203,36 @@
                              <input type="text" min="0" value="" class=" form-control" name="video" placeholder="Course Video Link">
                          </div>
                     </div>
+
+                    <div class="form-group col-xl-4 col-lg-4 col-md-6">
+                        <label for="regular_price">Regular Price: <span class="text-danger"></span></label>
+                        @error('regular_price') <span class="text-danger">{{ $message }}</span> @enderror
+                         <div class="input-group">
+                             <span class="input-group-text" title="Selling Price" id="basic-addon1">৳</span>
+                             <input type="number" min="0" value="" class=" form-control" name="regular_price" placeholder="Enter Regular Price">
+                         </div>
+                    </div>
+                    <div class="form-group col-xl-4 col-lg-4 col-md-6">
+                        <label for="discount_price">Discount Price: <span class="text-danger"></span></label>
+                        @error('discount_price') <span class="text-danger">{{ $message }}</span> @enderror
+                         <div class="input-group">
+                             <span class="input-group-text" title="Selling Price" id="basic-addon1">৳</span>
+                             <input type="number" min="0" value="" class=" form-control" name="discount_price" placeholder="Enter Discount Price">
+                         </div>
+                    </div>
+
+                    <div class="form-group col-xl-4 col-lg-4 col-md-6">
+                        <label for="discount_type">Discount Type:</label>
+                        @error('discount_type') <span class="text-danger">{{ $message }}</span> @enderror
+                         <div class="input-group">
+                             <span class="input-group-text" title="Name" id="basic-addon1">৳</span>
+                             <select  name="discount_type" class=" form-control">
+                              <option value="">Select Discount</option>
+                                 <option value="1">Flat</option>
+                                 <option value="2">Parcent %</option>
+                             </select>
+                         </div>
+                     </div>
 
                     <div class="form-group col-xl-12 col-lg-12  col-md-6">
                         <label for="description">Description:</label>

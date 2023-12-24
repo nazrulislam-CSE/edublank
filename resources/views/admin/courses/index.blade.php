@@ -65,7 +65,8 @@
                                             <th class="border-bottom-0">Photo</th>
                                             <th class="border-bottom-0">Category</th>
                                             <th class="border-bottom-0">Instructor</th>
-                                            <th class="border-bottom-0">Price</th>
+                                            <th class="border-bottom-0">Regular Price</th>
+                                            <th class="border-bottom-0">Discount Price</th>
                                             <th class="border-bottom-0">Status</th>
                                             <th class="border-bottom-0">Actions</th>
                                         </tr>
@@ -79,8 +80,22 @@
                                             </td>
                                             </td>
                                             <td>{{ $course->category->name ?? 'Null'}}</td>
-                                             <td>{{ $course->user->name?? 'Null'}}</td>
-                                            <td>{{ $course->selling_price ?? 'Null'}}</td>
+                                            @php
+                                                $instructor = App\Models\User::where('id',$course->instructor_id)->first(); 
+                                            @endphp
+                                             <td>{{ $instructor->name?? 'Null'}}</td>
+                                            <td>৳{{ $course->regular_price ?? 'Null'}}</td>
+                                            <td>
+                                                @if($course->discount_price > 0)
+                                                    @if($course->discount_type == 1)
+                                                        <span class="badge rounded-pill bg-info text-white">৳{{ $course->discount_price }} off</span>
+                                                    @elseif($course->discount_type == 2)
+                                                        <span class="badge rounded-pill bg-success text-white">{{ $course->discount_price }}% off</span>
+                                                    @endif
+                                                @else
+                                                <span class="badge rounded-pill bg-danger text-white">No Discount</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 @if($course->status == 1)
                                                     <a href="#" class="badge bg-pill bg-success">Active</a>

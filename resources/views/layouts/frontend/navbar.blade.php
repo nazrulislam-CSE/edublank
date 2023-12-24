@@ -144,19 +144,29 @@
                                 $menuitems = App\Models\Menuitem::with(['subMenus.childMenus'])->whereNull('parent_id')->whereHas('get_menu', function($query){ $query->where('location','main_header');})->orderby('position', 'asc')->get();
                             @endphp
 
-                            @foreach($menuitems as $menuitem)
-                            @if(count($menuitem->subMenus)>0)
-                                <li class="has-droupdown"><a href="#">{{$menuitem->title}}</a>
-                                    <ul class="submenu">
-                                        @foreach($menuitem->subMenus as $subMenu)
-                                            <li>
-                                                <a href="{{url($subMenu->url)}}">{{$subMenu->title}}</a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                            @endif
-                            @endforeach
+                                @foreach($menuitems as $menuitem)
+                                    @if(count($menuitem->subMenus)>0)
+                                    <li class="has-droupdown"><a href="#">{{$menuitem->title}}</a>
+                                        <ul class="submenu">
+                                            @foreach($menuitem->subMenus as $subMenu)
+                                                <li>
+                                                    <a href="{{url($subMenu->url)}}">{{$subMenu->title}}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                    @else
+                                    <li class="has-droupdown"><a href="#">{{$menuitem->title}}</a>
+                                        <ul class="submenu">
+                                            @foreach($menuitem->subMenus as $subMenu)
+                                                <li>
+                                                    <a href="{{url($subMenu->url)}}">{{$subMenu->title}}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endif
+                                @endforeach
 
                             {{-- <li class="has-droupdown"><a href="#">Blog</a>
                                 <ul class="submenu">

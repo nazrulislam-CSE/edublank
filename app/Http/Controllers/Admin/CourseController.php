@@ -47,7 +47,7 @@ class CourseController extends Controller
             'course_lessons' =>'required',
             'course_duration' =>'required',
             'course_hours' =>'required',
-          'selling_price' =>'required',
+          'regular_price' =>'required',
             'discount_price' =>'required',
           'status' =>'required',
           'course_image'=> 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
@@ -67,14 +67,14 @@ class CourseController extends Controller
         $course->course_hours = $request->course_hours;
         $course->resources = $request->resources;
         $course->certificate = $request->certificate;
-        $course->selling_price = $request->selling_price;
+        $course->regular_price = $request->regular_price;
         $course->discount_price = $request->discount_price;
         $course->prerequisites = $request->prerequisites;
         $course->bestseller = $request->bestseller;
         $course->featured = $request->featured;
         $course->highestrated = $request->highestrated;
         $course->promo_code = mt_rand(1000, 9999);
-        // $course->discount_type = $request->discount_type;
+        $course->discount_type = $request->discount_type;
         $course->status = $request->status;
         $course->save();
 
@@ -133,13 +133,12 @@ class CourseController extends Controller
         $course->course_hours = $request->course_hours;
         $course->resources = $request->resources;
         $course->certificate = $request->certificate;
-        $course->selling_price = $request->selling_price;
+        $course->regular_price = $request->regular_price;
         $course->discount_price = $request->discount_price;
         $course->prerequisites = $request->prerequisites;
         $course->bestseller = $request->bestseller;
         $course->featured = $request->featured;
         $course->highestrated = $request->highestrated;
-        $course->promo_code = rand(1,4);
         $course->discount_type = $request->discount_type;
         $course->status = $request->status;
         $course->save();
