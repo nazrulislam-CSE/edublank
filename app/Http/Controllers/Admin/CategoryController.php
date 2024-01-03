@@ -100,6 +100,7 @@ class CategoryController extends Controller
         $category->keywords = implode(',', $request->keywords);
         $category->meta_description = $request->meta_description;
         $category->status = $request->status;
+        $category->updated_by = $user_id;
         $category->save();
 
         flash()->addSuccess("Category Updated Successfully.");

@@ -94,6 +94,15 @@
                     </ul>
                 </li>
 
+                <li class="slide {{ Request::is('admin/questions*') ? 'is-expanded' : '' }}">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Question</span><i class="angle fe fe-chevron-down"></i></a>
+                    <ul class="slide-menu">
+                        <li class="side-menu__label1"><a href="javascript:void(0);">Questions</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/question/create') ? 'active' : '' }}" href="{{ route('admin.question.create')}}">Question Add</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/question/index') ? 'active' : '' }}" href="{{ route('admin.question.index')}}">Question List</a></li>
+                    </ul>
+                </li>
+
 
                 <li class="slide {{ Request::is('admin/courses*') ? 'is-expanded' : '' }}">
                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Course</span><i class="angle fe fe-chevron-down"></i></a>

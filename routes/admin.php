@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\MenuBuilderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\InstructorController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\QuestionController;
 
 
 Route::get('login', [AdminLoginController::class, 'viewLogin'])->name('login.view');
@@ -122,6 +123,18 @@ Route::middleware('admin')->group(function () {
         Route::post('/update/{id}', [CourseController::class, 'update'])->name('course.update');
         Route::get('/delete/{id}', [CourseController::class, 'destroy'])->name('course.delete');
         Route::get('/show/{id}', [CourseController::class,'show'])->name('course.show');
+
+    });
+    
+    /* ============> Question <=========== */
+    Route::prefix('questions')->group(function () {
+        Route::get('/index', [QuestionController::class, 'index'])->name('question.index');
+        Route::get('/create', [QuestionController::class, 'create'])->name('question.create');
+        Route::post('/store', [QuestionController::class, 'store'])->name('question.store');
+        Route::get('/edit/{id}', [QuestionController::class, 'edit'])->name('question.edit');
+        Route::post('/update/{id}', [QuestionController::class, 'update'])->name('question.update');
+        Route::get('/delete/{id}', [QuestionController::class, 'destroy'])->name('question.delete');
+        Route::get('/show/{id}', [QuestionController::class,'show'])->name('question.show');
 
     });
   
