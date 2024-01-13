@@ -78,7 +78,8 @@ class MenuBuilderController extends Controller
               foreach($ids as $id){
                 $category = Category::where('id',$id)->first();
                 $menuItem = new Menuitem();
-                $menuItem->title = $category->name;
+                $menuItem->title_en = $category->name_en;
+                $menuItem->title_bn = $category->name_bn;
                 $menuItem->url = 'category/'.$category->slug;
                 $menuItem->sourch = 'category';
                 $menuItem->parent_id = null;
@@ -91,9 +92,10 @@ class MenuBuilderController extends Controller
               foreach($request->subids as $id){
                 $category = Category::where('id',$id)->first();
                 $menuItem = new Menuitem();
-                $menuItem->title = $category->category_bd;
+                $menuItem->title_en = $category->name_en;
+                $menuItem->title_bn = $category->name_bn;
                 $menuItem->url = 'category/'.$category->slug;
-                $menuItem->sourch = 'category';
+                $menuItem->sourch = 'sub-category';
                 $menuItem->parent_id = null;
                 $menuItem->menu_id = $menuid;
                 $menuItem->save();
@@ -105,9 +107,10 @@ class MenuBuilderController extends Controller
               foreach($request->childids as $id){
                 $category = Category::where('id',$id)->first();
                 $menuItem = new Menuitem();
-                $menuItem->title = $category->category_bd;
+                $menuItem->title_en = $category->name_en;
+                $menuItem->title_bn = $category->name_bn;
                 $menuItem->url = 'category/'.$category->slug;
-                $menuItem->sourch = 'category';
+                $menuItem->sourch = 'child-category';
                 $menuItem->parent_id = null;
                 $menuItem->menu_id = $menuid;
                 $menuItem->save();
@@ -118,7 +121,8 @@ class MenuBuilderController extends Controller
             foreach($ids as $id){
               $page = Page::where('id',$id)->first();
               $menuItem = new Menuitem();
-              $menuItem->title = $page->page_name;
+              $menuItem->title_en = $page->page_name_en;
+              $menuItem->title_bn = $page->page_name_bn;
               $menuItem->url = $page->page_slug;
               $menuItem->sourch = 'page';
               $menuItem->parent_id = null;
@@ -139,7 +143,8 @@ class MenuBuilderController extends Controller
               }
           }else{
               $menuItem = new Menuitem();
-              $menuItem->title = $request->link;
+              $menuItem->title_en = $request->link;
+              $menuItem->title_bn = $request->link;
               $menuItem->url = $request->url;
               $menuItem->sourch = 'custom';
               $menuItem->parent_id = null;
@@ -190,12 +195,13 @@ class MenuBuilderController extends Controller
 
       public function updateMenuItem(Request $request, $id){
         $item = Menuitem::find($id);
-        $item->title = $request->title;
+        $item->title_en = $request->title_en;
+        $item->title_bn = $request->title_bn;
         $item->title_hidden = ($request->title_hidden) ? 1 : null;
         $item->url = ($request->url) ? $request->url : $item->url ;
         // $item->menu_type = ($request->menu_type) ? $request->menu_type : null;
         // $item->menu_width = ($request->menu_width) ? $request->menu_width : null;
-        $item->sub_title = strtolower(trim(preg_replace('/\s+/', '-', $request->title)));
+        $item->sub_title = strtolower(trim(preg_replace('/\s+/', '-', $request->title_en)));
         $item->save();
 
         flash()->addSuccess("Set Menu Item Updated Successfully."); 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Question;
+use App\Models\Subject;
+use App\Models\CourseClass;
 use Auth;
 
 class QuestionController extends Controller
@@ -15,7 +17,7 @@ class QuestionController extends Controller
     public function index()
     {
         $pageTitle = 'Question List';
-        $questions = Question::where('status',1)->latest()->get();
+        $questions = Question::latest()->get();
         return view('admin.question.index',compact('pageTitle', 'questions'));
     }
 
@@ -25,7 +27,9 @@ class QuestionController extends Controller
     public function create()
     {
         $pageTitle = 'Question Create';
-        return view('admin.question.create',compact('pageTitle'));
+        $subjects = Subject::where('status',1)->latest()->get();
+        $classes = CourseClass::where('status',1)->latest()->get();
+        return view('admin.question.create',compact('pageTitle','subjects','classes'));
     }
 
     /**
@@ -34,24 +38,33 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'question' =>'required',
-            'a'   =>'required',
-            'b'     =>'required',
-            'c' =>'required',
-            'd' =>'required',
+            'question_en' =>'required',
+            'optiona_en'   =>'required',
+            'optionb_en'     =>'required',
+            'optionc_en'     =>'required',
+            'optiond_en'     =>'required',
             'answer'=>'required',
+            'types'=>'required',
             'status'=>'required',
         ]);
 
         $user_id = Auth::guard('admin')->user()->id;
 
         Question::create([
-            'question' => $request->question,
-            'a'=> $request->a,
-            'b'=> $request->b,
-            'c'=> $request->c,
-            'd'=> $request->d,
+            'question_en'=> $request->question_en,
+            'question_bn'=> $request->question_bn,
+            'optiona_en'=> $request->optiona_en,
+            'optiona_bn'=> $request->optiona_bn,
+            'optionb_en'=> $request->optiona_en,
+            'optionb_bn'=> $request->optiona_bn,
+            'optionc_en'=> $request->optiona_en,
+            'optionc_bn'=> $request->optiona_bn,
+            'optiond_en'=> $request->optiona_en,
+            'optiond_bn'=> $request->optiona_bn,
             'answer'=> $request->answer,
+            'class_id'=> $request->class_id,
+            'subject_id'=> $request->subject_id,
+            'types'=> $request->types,
             'status' => $request->status,
             'created_by'        => $user_id,
         ]);
@@ -78,7 +91,9 @@ class QuestionController extends Controller
     {
         $pageTitle = 'Question Edit';
         $question = Question::find($id);
-        return view('admin.question.edit',compact('pageTitle','question'));
+        $subjects = Subject::where('status',1)->latest()->get();
+        $classes = CourseClass::where('status',1)->latest()->get();
+        return view('admin.question.edit',compact('pageTitle','question','subjects','classes'));
     }
 
     /**
@@ -89,12 +104,20 @@ class QuestionController extends Controller
         $user_id = Auth::guard('admin')->user()->id;
 
         $question = Question::find($id);
-        $question->question = $request->question;
-        $question->a = $request->a;
-        $question->b = $request->b;
-        $question->c = $request->c;
-        $question->d = $request->d;
+        $question->question_en = $request->question_en;
+        $question->question_bn = $request->question_bn;
+        $question->optiona_en = $request->optiona_en;
+        $question->optiona_bn = $request->optiona_bn;
+        $question->optionb_en = $request->optiona_en;
+        $question->optionb_bn = $request->optiona_bn;
+        $question->optionc_en = $request->optiona_en;
+        $question->optionc_bn = $request->optiona_bn;
+        $question->optiond_en = $request->optiona_en;
+        $question->optiond_bn = $request->optiona_bn;
         $question->answer = $request->answer;
+        $question->class_id = $request->class_id;
+        $question->subject_id = $request->subject_id;
+        $question->types = $request->types;
         $question->status = $request->status;
         $question->updated_by = $user_id;
         $question->save();

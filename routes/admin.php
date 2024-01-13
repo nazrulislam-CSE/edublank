@@ -12,7 +12,10 @@ use App\Http\Controllers\Admin\MenuBuilderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\InstructorController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\SubjectController;
+use App\Http\Controllers\Admin\CourseClassController;
 use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\ExamController;
 
 
 Route::get('login', [AdminLoginController::class, 'viewLogin'])->name('login.view');
@@ -125,6 +128,30 @@ Route::middleware('admin')->group(function () {
         Route::get('/show/{id}', [CourseController::class,'show'])->name('course.show');
 
     });
+
+    /* ============> Subject <=========== */
+    Route::prefix('subjects')->group(function () {
+        Route::get('/index', [SubjectController::class, 'index'])->name('subject.index');
+        Route::get('/create', [SubjectController::class, 'create'])->name('subject.create');
+        Route::post('/store', [SubjectController::class, 'store'])->name('subject.store');
+        Route::get('/edit/{id}', [SubjectController::class, 'edit'])->name('subject.edit');
+        Route::post('/update/{id}', [SubjectController::class, 'update'])->name('subject.update');
+        Route::get('/delete/{id}', [SubjectController::class, 'destroy'])->name('subject.delete');
+        Route::get('/show/{id}', [SubjectController::class,'show'])->name('subject.show');
+
+    });
+
+    /* ============> Class <=========== */
+    Route::prefix('courses-class')->group(function () {
+        Route::get('/index', [CourseClassController::class, 'index'])->name('class.index');
+        Route::get('/create', [CourseClassController::class, 'create'])->name('class.create');
+        Route::post('/store', [CourseClassController::class, 'store'])->name('class.store');
+        Route::get('/edit/{id}', [CourseClassController::class, 'edit'])->name('class.edit');
+        Route::post('/update/{id}', [CourseClassController::class, 'update'])->name('class.update');
+        Route::get('/delete/{id}', [CourseClassController::class, 'destroy'])->name('class.delete');
+        Route::get('/show/{id}', [CourseClassController::class,'show'])->name('class.show');
+
+    });
     
     /* ============> Question <=========== */
     Route::prefix('questions')->group(function () {
@@ -135,6 +162,18 @@ Route::middleware('admin')->group(function () {
         Route::post('/update/{id}', [QuestionController::class, 'update'])->name('question.update');
         Route::get('/delete/{id}', [QuestionController::class, 'destroy'])->name('question.delete');
         Route::get('/show/{id}', [QuestionController::class,'show'])->name('question.show');
+
+    });
+
+    /* ============> Exam <=========== */
+    Route::prefix('exam')->group(function () {
+        Route::get('/index', [ExamController::class, 'index'])->name('exam.index');
+        Route::get('/create', [ExamController::class, 'create'])->name('exam.create');
+        Route::post('/store', [ExamController::class, 'store'])->name('exam.store');
+        Route::get('/edit/{id}', [ExamController::class, 'edit'])->name('exam.edit');
+        Route::post('/update/{id}', [ExamController::class, 'update'])->name('exam.update');
+        Route::get('/delete/{id}', [ExamController::class, 'destroy'])->name('exam.delete');
+        Route::get('/show/{id}', [ExamController::class,'show'])->name('exam.show');
 
     });
   

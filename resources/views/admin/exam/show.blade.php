@@ -7,7 +7,7 @@
         {{-- <h4 class="content-title mb-2">Hi, welcome back!</h4> --}}
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0);">Categories</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">{{ $pageTitle ?? 'Dashboard' }}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $pageTitle ?? 'Page Title' }}</li>
             </ol>
         </nav>
@@ -49,64 +49,49 @@
     <div class="card-header border-bottom d-flex justify-content-between align-items-center">
        <p class="card-title my-0">{{ $pageTitle ?? 'Page Title'}}</p>
        <div class="d-flex">
-           <a href="{{ route('admin.category.index')}}" class="btn btn-danger me-2">
-               <i class="fas fa-list d-inline"></i> Category List
+           <a href="{{ route('admin.exam.index')}}" class="btn btn-danger me-2">
+               <i class="fas fa-list d-inline"></i> Exam List
            </a>
        </div>
    </div>
     <div class="card-body">
        <div class="table-responsive">
-          <table class="table table-bordered">
-             <tr>
-                <td>Category Name English</td>
-                <td>{{ $category->name_en ?? 'NULL' }}</td>
-             </tr>
-             <tr>
-                <td>Category Name Bangla</td>
-                <td>{{ $category->name_bn ?? 'NULL' }}</td>
-             </tr>
-             <tr>
-
-                <td>Category Slug</td>
-                <td>{{ $category->slug?? 'NULL' }}</td>
-             </tr>
-             <tr>
-                <td>Meta Title</td>
-                <td>{{ $category->meta_title ?? 'NULL' }}</td>
-             </tr>
-             <tr>
-                <td>Meta Keywords</td>
-                <td>{{ $category->keywords ?? 'NULL' }}</td>
-             </tr>
-             <tr>
-                <td>Meta Description</td>
-                <td>{!! $category->meta_description ?? 'NULL' !!}</td>
-             </tr>
-            </tr>
-            <td>Type</td>
-            <td>
-                  @if ($category->type == 1)
-                    <span class="badge bg-pill bg-success">Category</span>
-                  @elseif($category->type ==2)
-                    <span class="badge bg-pill bg-danger">Blog</span>
-                    @elseif($category->type ==3)
-                    <span class="badge bg-pill bg-info">Portfolio</span>
-                  @endif
-
-            </td>
-            </tr>
-             </tr>
-             <td>Status</td>
-             <td>
-                   @if ($category->status == 1)
-                   <span class="badge bg-pill bg-success">Active</span>
-                   @else
-                   <span class="badge bg-pill bg-success">Disable</span>
-                   @endif
-
-             </td>
-             </tr>
-          </table>
+            <table class="table table-bordered">
+                <tr>
+                    <td>Exam Title English</td>
+                    <td>{{ $exam->title_en ?? 'NULL' }}</td>
+                </tr>
+                <tr>
+                    <td>Exam Title Bangla</td>
+                    <td>{{ $exam->title_bn ?? 'NULL' }}</td>
+                </tr>
+                <tr>
+                    <td>Exam Code</td>
+                    <td>{{ $exam->code ?? 'NULL' }}</td>
+                </tr>
+                <tr>
+                    <td>Exam Date</td>
+                    <td>{{ $exam->date ?? 'NULL' }}</td>
+                </tr>
+                <tr>
+                    <td>Exam Time</td>
+                    <td>{{ $exam->time ?? 'NULL' }}</td>
+                </tr>
+                <tr>
+                    <td>Exam Marks</td>
+                    <td>{{ $exam->marks ?? 'NULL' }}</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>
+                        @if ($exam->status == 1)
+                            <span class="badge bg-pill bg-success">Active</span>
+                        @else
+                            <span class="badge bg-pill bg-success">Disable</span>
+                        @endif
+                    </td>
+                </tr>
+            </table>
        </div>
     </div>
  </div>

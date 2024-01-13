@@ -60,7 +60,13 @@
                 </li>
 
                 <li class="slide {{ Request::is('admin/abouts*') ? 'is-expanded' : '' }}">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">About Us</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-bar-chart-2 "></i>
+                        <span class="side-menu__label">About Us</span>
+                        <span class="badge bg-success side-badge">5</span>
+                        <i class="angle fe fe-chevron-down hor-angle"></i>
+                    </a>
+
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">About Us</a></li>
                         <li><a class="slide-item{{ Request::is('admin/abouts/create') ? 'active' : '' }}" href="{{ route('admin.about.create')}}">About Us Add</a></li>
@@ -69,7 +75,8 @@
                 </li>
 
                 <li class="slide {{ Request::is('admin/sections*') ? 'is-expanded' : '' }}">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Sections</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Sections</span>
+                        <i class="angle fe fe-chevron-down"></i>  <span class="badge bg-danger side-badge">5</span></a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Sections</a></li>
                         <li><a class="slide-item {{ Request::is('admin/sections/create') ? 'active' : '' }}" href="{{ route('admin.section.create')}}">Section Add</a></li>
@@ -78,7 +85,9 @@
                 </li>
 
                 <li class="slide {{ Request::is('admin/categories*') ? 'is-expanded' : '' }}">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Category</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Category</span>
+                        <i class="angle fe fe-chevron-down"></i> <span class="badge bg-success side-badge">5</span></a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Category</a></li>
                         <li><a class="slide-item {{ Request::is('admin/categories/create') ? 'active' : '' }}" href="{{ route('admin.category.create')}}">Category Add</a></li>
@@ -87,15 +96,50 @@
                 </li>
 
                 <li class="slide {{ Request::is('admin/menus*') ? 'is-expanded' : '' }}">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Menu Builder</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Menu Builder</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-danger side-badge">5</span>
+                    </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Menu Builder</a></li>
                         <li><a class="slide-item {{ Request::is('admin/menuBuilder') ? 'active' : '' }}" href="{{ route('admin.menuBuilder')}}">Mange Menu Builder</a></li>
                     </ul>
                 </li>
 
+                <li class="slide {{ Request::is('admin/subjects*') ? 'is-expanded' : '' }}">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Subjects</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-success side-badge">5</span>
+                    </a>
+                    <ul class="slide-menu">
+                        <li class="side-menu__label1"><a href="javascript:void(0);">Subject</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/subject/create') ? 'active' : '' }}" href="{{ route('admin.subject.create')}}">Subject Add</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/subject/index') ? 'active' : '' }}" href="{{ route('admin.subject.index')}}">Subject List</a></li>
+                    </ul>
+                </li>
+
+                <li class="slide {{ Request::is('admin/courses-class*') ? 'is-expanded' : '' }}">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Class</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-danger side-badge">5</span>
+                    </a>
+                    <ul class="slide-menu">
+                        <li class="side-menu__label1"><a href="javascript:void(0);">Class</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/class/create') ? 'active' : '' }}" href="{{ route('admin.class.create')}}">Class Add</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/class/index') ? 'active' : '' }}" href="{{ route('admin.class.index')}}">Class List</a></li>
+                    </ul>
+                </li>
+
                 <li class="slide {{ Request::is('admin/questions*') ? 'is-expanded' : '' }}">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Question</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i>
+                        <span class="side-menu__label">Question</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-success side-badge">5</span>
+                    </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Questions</a></li>
                         <li><a class="slide-item{{ Request::is('admin/question/create') ? 'active' : '' }}" href="{{ route('admin.question.create')}}">Question Add</a></li>
@@ -103,9 +147,28 @@
                     </ul>
                 </li>
 
+                <li class="slide {{ Request::is('admin/exam*') ? 'is-expanded' : '' }}">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i>
+                        <span class="side-menu__label">Exam</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-success side-badge">5</span>
+                    </a>
+                    <ul class="slide-menu">
+                        <li class="side-menu__label1"><a href="javascript:void(0);">Exam</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/exam/create') ? 'active' : '' }}" href="{{ route('admin.exam.create')}}">Exam Add</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/exam/index') ? 'active' : '' }}" href="{{ route('admin.exam.index')}}">Exam List</a></li>
+                    </ul>
+                </li>
+
 
                 <li class="slide {{ Request::is('admin/courses*') ? 'is-expanded' : '' }}">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Course</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i>
+                        <span class="side-menu__label">Course</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-danger side-badge">5</span>
+                    </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Course</a></li>
                         <li><a class="slide-item{{ Request::is('admin/course/create') ? 'active' : '' }}" href="{{ route('admin.course.create')}}">Course Add</a></li>
@@ -114,7 +177,11 @@
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Model Test</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Model Test</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-success side-badge">5</span>
+                    </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Model Test</a></li>
                         <li><a class="slide-item" href="#">Model Test Add</a></li>
@@ -123,7 +190,12 @@
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Learning School</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i>
+                        <span class="side-menu__label">Learning School</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-danger side-badge">5</span>
+                    </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Learning School</a></li>
                         <li><a class="slide-item" href="#">Learning School Add</a></li>
@@ -132,7 +204,12 @@
                 </li>
 
                 <li class="slide {{ Request::is('admin/instructors*') ? 'is-expanded' : '' }}">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Instructors</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i>
+                        <span class="side-menu__label">Instructors</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-success side-badge">5</span>
+                    </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Instructors</a></li>
                         <li><a class="slide-item {{ Request::is('admin/instructors/create') ? 'active' : '' }}" href="{{ route('admin.instructor.create')}}">Instructors Add</a></li>
@@ -141,7 +218,11 @@
                 </li>
 
                 <li class="slide {{ Request::is('admin/pages*') ? 'is-expanded' : '' }}">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Pages</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Pages</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-danger side-badge">5</span>
+                    </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Pages</a></li>
                         <li><a class="slide-item {{ Request::is('admin/pages/create') ? 'active' : '' }}" href="{{ route('admin.page.create')}}">Pages Add</a></li>
@@ -150,7 +231,10 @@
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Blogs</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i>
+                        <span class="side-menu__label">Blogs</span><i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-success side-badge">5</span></a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Blogs</a></li>
                         <li><a class="slide-item" href="#">Blog Add</a></li>
@@ -159,7 +243,11 @@
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Testimonials</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Testimonials</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-danger side-badge">5</span>
+                    </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Testimonials</a></li>
                         <li><a class="slide-item" href="#">Testimonials Add</a></li>
@@ -168,7 +256,11 @@
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Teams</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Teams</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-success side-badge">5</span>
+                    </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Teams</a></li>
                         <li><a class="slide-item" href="#">Team Add</a></li>
@@ -177,7 +269,11 @@
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Partners</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Partners</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-danger side-badge">5</span>
+                    </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Partners</a></li>
                         <li><a class="slide-item" href="#">Partner Add</a></li>
@@ -186,7 +282,12 @@
                 </li>
 
                 <li class="slide {{ Request::is('admin/settings*') ? 'is-expanded' : '' }}">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Advance Settings</span><i class="angle fe fe-chevron-down"></i></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i>
+                        <span class="side-menu__label">Advance Settings</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-success side-badge">5</span>
+                    </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Advance Settings</a></li>
                         <li><a class="slide-item {{ Request::is('admin/settings/index') ? 'active' : '' }}" href="{{ route('admin.settings.index')}}">Manage Setting</a></li>

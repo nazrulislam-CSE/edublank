@@ -82,8 +82,16 @@
     <a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a>
     <!--- JQuery min js --->
     <script src="{{ asset('dashboard/plugins/jquery/jquery.min.js') }}"></script>
+
     <!--- Datepicker js --->
     <script src="{{ asset('dashboard/plugins/jquery-ui/ui/widgets/datepicker.js') }}"></script>
+    <script>
+        $('.fc-datepicker').datepicker({
+            showOtherMonths: true,
+            selectOtherMonths: true
+        });
+    </script>
+
     <!--- Bootstrap Bundle js --->
     <script src="{{ asset('dashboard/plugins/bootstrap/popper.min.js') }}"></script>
     <script src="{{ asset('dashboard/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -126,6 +134,18 @@
 	<script src="{{ asset('dashboard/plugins/inputtags/inputtags.js')}}"></script>
     <!-- INTERNAL Summernote Editor js -->
 	<script src="{{ asset('dashboard/plugins/summernote-editor/summernote1.js')}}"></script>
+
+    <!--- Select2 js --->
+	<script src="{{ asset('dashboard/plugins/select2/js/select2.min.js')}}"></script>
+
+    <script src="{{ asset('dashboard/js/tooltip.js') }}"></script>
+    <script>
+        // ___________TOOLTIP
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
 
     <!-- DATA TABLE JS-->
     <script src="{{ asset('dashboard/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>

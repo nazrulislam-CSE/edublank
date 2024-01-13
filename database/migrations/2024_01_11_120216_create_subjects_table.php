@@ -11,20 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('course_classes', function (Blueprint $table) {
+        Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->string('name_en')->nullable();
             $table->string('name_bn')->nullable();
-            $table->string('video')->nullable();
-            $table->string('lecture_shit')->nullable(); 
-            $table->integer('subject_id')->nullable(); 
-            $table->integer('course_id')->nullable(); 
-            $table->string('listening_voice')->nullable(); 
-            $table->text('description_en')->nullable(); 
-            $table->text('description_bn')->nullable(); 
-            $table->tinyInteger('status')->default(0)->comment('0=Inactive','1=Active'); 
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
+            $table->tinyInteger('status')->default(1)->comment('1=Active','0=Inactive'); 
             $table->timestamps();
         });
     }
@@ -34,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('course_classes');
+        Schema::dropIfExists('subjects');
     }
 };

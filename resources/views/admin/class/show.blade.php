@@ -7,7 +7,7 @@
         {{-- <h4 class="content-title mb-2">Hi, welcome back!</h4> --}}
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">{{ $pageTitle ?? 'Dashboard' }}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $pageTitle ?? 'Page Title' }}</li>
             </ol>
         </nav>
@@ -49,8 +49,8 @@
     <div class="card-header border-bottom d-flex justify-content-between align-items-center">
        <p class="card-title my-0">{{ $pageTitle ?? 'Page Title'}}</p>
        <div class="d-flex">
-           <a href="{{ route('admin.page.index')}}" class="btn btn-danger me-2">
-               <i class="fas fa-list d-inline"></i> Page List
+           <a href="{{ route('admin.class.index')}}" class="btn btn-danger me-2">
+               <i class="fas fa-list d-inline"></i> Class List
            </a>
        </div>
    </div>
@@ -58,74 +58,45 @@
        <div class="table-responsive">
           <table class="table table-bordered">
              <tr>
-                <td>Page Name English</td>
-                <td>{{ $page->page_name_en ?? 'NULL' }}</td>
+                <td>Class Name English</td>
+                <td>{{ $class->name_en ?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td>Page Name Bangla</td>
-                <td>{{ $page->page_name_bn ?? 'NULL' }}</td>
+                <td>Class Name Bangla</td>
+                <td>{{ $class->name_bn ?? 'NULL' }}</td>
              </tr>
              <tr>
-
-                <td>Page Slug</td>
-                <td>{{ $page->page_slug?? 'NULL' }}</td>
+                <td>Subject Name English</td>
+                <td>{{ $class->subject->name_en ?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td>Page Title English</td>
-                <td>{{ $page->page_title_en ?? 'NULL' }}</td>
+                <td>Subject Name Bangla</td>
+                <td>{{ $class->subject->name_bn ?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td>Page Title Bangla</td>
-                <td>{{ $page->page_title_bn ?? 'NULL' }}</td>
+                <td>Class Video</td>
+                <td>{{ $class->video ?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td>Page Description English</td>
-                <td>{!! $page->page_description_en ?? 'NULL' !!}</td>
+                <td>Class Lecture Shit</td>
+                <td>{{ $class->lecture_shit ?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td>Page Description Bangla</td>
-                <td>{!! $page->page_description_bn ?? 'NULL' !!}</td>
+                <td>Class Listening Voice </td>
+                <td>{{ $class->listening_voice ?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td>Meta Title</td>
-                <td>{{ $page->meta_title ?? 'NULL' }}</td>
+                <td>Class Description English  </td>
+                <td>{{ $class->description_en ?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td>Meta Keywords</td>
-                <td>{{ $page->keywords ?? 'NULL' }}</td>
+                <td>Class Description Bangla  </td>
+                <td>{{ $class->description_bn ?? 'NULL' }}</td>
              </tr>
-             <tr>
-                <td>Meta Description</td>
-                <td>{!! $page->meta_description ?? 'NULL' !!}</td>
-             </tr>
-            </tr>
-            <td>position</td>
-            <td>
-                @if($page->position == 1)
-                    <a href="#" class="badge bg-pill bg-success text-light">Top Bar</a>
-                @elseif($page->position == 2)
-                    <a href="#" class="badge bg-pill bg-danger text-light">Bootom Bar</a>
-                @elseif($page->position == 3)
-                    <a href="#" class="badge bg-pill bg-primary text-light">Footer Bar</a>
-                @endif
-
-            </td>
-            </tr>
-        </tr>
-        <td>Is Default</td>
-        <td>
-            @if($page->is_default ==1)
-            <span class="badge bg-pill bg-warning text-light">Default</span>
-        @else
-            <span class="badge bg-pill bg-info text-light">Custom</span>
-        @endif
-
-        </td>
-        </tr>
              </tr>
              <td>Status</td>
              <td>
-                   @if ($page->status == 1)
+                   @if ($class->status == 1)
                    <span class="badge bg-pill bg-success">Active</span>
                    @else
                    <span class="badge bg-pill bg-success">Disable</span>

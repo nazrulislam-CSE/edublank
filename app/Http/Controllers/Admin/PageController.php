@@ -34,12 +34,15 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'page_title'        =>'required',
-            'page_name'         =>'required',
+            'page_title_en'        =>'required',
+            'page_title_bn'        =>'required',
+            'page_name_en'         =>'required',
+            'page_name_bn'         =>'required',
             'meta_title'        =>'required',
             'keywords'          =>'required',
             'meta_description'  =>'required',
-            'page_description'  =>'required',
+            'page_description_en'  =>'required',
+            'page_description_bn'  =>'required',
             'position'          =>'required',
             'is_default'        =>'required',
             'status'            =>'required',
@@ -49,13 +52,16 @@ class PageController extends Controller
 
         
         Page::create([
-            'page_title'        => $request->page_title,
-            'page_name'         => $request->page_name,
-            'page_slug'         => strtolower(trim(preg_replace('/\s+/', '-', $request->page_name))),
+            'page_title_en'        => $request->page_title_en,
+            'page_title_bn'        => $request->page_title_bn,
+            'page_name_en'         => $request->page_name_en,
+            'page_name_bn'         => $request->page_name_bn,
+            'page_slug'         => strtolower(trim(preg_replace('/\s+/', '-', $request->page_name_en))),
             'meta_title'        => $request->meta_title,
             'keywords'          => implode(',', $request->keywords),
             'meta_description'  => $request->meta_description,
-            'page_description'  => $request->page_description,
+            'page_description_en'  => $request->page_description_en,
+            'page_description_bn'  => $request->page_description_bn,
             'is_default'        => $request->is_default,
             'position'          => $request->position,
             'status'            => $request->status,
@@ -95,13 +101,16 @@ class PageController extends Controller
         $user_id = Auth::guard('admin')->user()->id;
 
         $page = Page::find($id);
-        $page->page_title = $request->page_title;
-        $page->page_name = $request->page_name;
+        $page->page_title_en = $request->page_title_en;
+        $page->page_title_bn = $request->page_title_bn;
+        $page->page_name_en = $request->page_name_en;
+        $page->page_name_bn = $request->page_name_bn;
         $page->page_slug = strtolower(trim(preg_replace('/\s+/', '-', $request->page_name)));
         $page->meta_title = $request->meta_title;
         $page->keywords = implode(',', $request->keywords);
         $page->meta_description = $request->meta_description;
-        $page->page_description = $request->page_description;
+        $page->page_description_en = $request->page_description_en;
+        $page->page_description_bn = $request->page_description_bn;
         $page->is_default = $request->is_default;
         $page->position = $request->position;
         $page->status = $request->status;

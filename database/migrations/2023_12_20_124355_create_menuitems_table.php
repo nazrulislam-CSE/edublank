@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('parent_id')->nullable();
             $table->integer('menu_id')->nullable();
-            $table->string('title')->nullable();
+            $table->string('title_en')->nullable();
+            $table->string('title_bn')->nullable();
             $table->tinyInteger('title_hidden')->nullable();
             $table->string('menu_type', '10')->nullable()->comment('Horizontal,Vertical');
             $table->string('url')->nullable();

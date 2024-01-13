@@ -59,45 +59,85 @@
             <form action="{{ route('admin.question.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
               <div class="row">
-                    <div class="form-group col-xl-12 col-lg-12 col-md-12">
-                        <label for="name">Question Name: <span class="text-danger"></span></label>
-                        @error('question') <span class="text-danger">{{ $message }}</span> @enderror
+                    <div class="form-group col-xl-6 col-lg-6 col-md-12">
+                        <label for="question_en">Question Name English: <span class="text-danger"></span></label>
+                        @error('question_en') <span class="text-danger">{{ $message }}</span> @enderror
                         <div class="input-group">
                             <span class="input-group-text" title="Question Name" id="basic-addon1"><i class="fas fa-tags"></i></span>
-                            <input type="text" value="" class=" form-control" name="question" placeholder="Your question Name">
+                            <input type="text" value="" class=" form-control" name="question_en" placeholder="Your question Name english">
+                        </div>
+                    </div>
+                    <div class="form-group col-xl-6 col-lg-6 col-md-12">
+                        <label for="question_bn">Question Name Bangla: <span class="text-danger"></span></label>
+                        @error('question_bn') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="input-group">
+                            <span class="input-group-text" title="Question Name" id="basic-addon1"><i class="fas fa-tags"></i></span>
+                            <input type="text" value="" class=" form-control" name="question_bn" placeholder="Your question Name bangla">
                         </div>
                     </div>
                     <h4 class="text-success font-weaight-bolder">Give Options:</h4>
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                       <label for="a">Options A: <span class="text-danger"></span></label>
-                       @error('a') <span class="text-danger">{{ $message }}</span> @enderror
+                       <label for="optiona_en">Options A English: <span class="text-danger"></span></label>
+                       @error('optiona_en') <span class="text-danger">{{ $message }}</span> @enderror
                         <div class="input-group">
                             <span class="input-group-text" title="Question A" id="basic-addon1"><i class="fas fa-building"></i></span>
-                            <input type="text" value="" class=" form-control" name="a" placeholder="Option A">
+                            <input type="text" value="" class=" form-control" name="optiona_en" placeholder="Option A English">
                         </div>
                     </div>
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                        <label for="b">Options B: <span class="text-danger"></span></label>
-                        @error('b') <span class="text-danger">{{ $message }}</span> @enderror
+                        <label for="optiona_en">Options A Bangla: <span class="text-danger"></span></label>
+                        @error('optiona_bn') <span class="text-danger">{{ $message }}</span> @enderror
+                         <div class="input-group">
+                             <span class="input-group-text" title="Question A" id="basic-addon1"><i class="fas fa-building"></i></span>
+                             <input type="text" value="" class=" form-control" name="optiona_bn" placeholder="Option A Bangla">
+                         </div>
+                     </div>
+                    <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                        <label for="optionb_en">Options B English: <span class="text-danger"></span></label>
+                        @error('optionb_en') <span class="text-danger">{{ $message }}</span> @enderror
                          <div class="input-group">
                              <span class="input-group-text" title="Question B" id="basic-addon1"><i class="fas fa-building"></i></span>
-                             <input type="text" value="" class=" form-control" name="b" placeholder="Option B">
+                             <input type="text" value="" class=" form-control" name="optionb_en" placeholder="Option B English">
                          </div>
                      </div>
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                        <label for="c">Options C: <span class="text-danger"></span></label>
-                        @error('c') <span class="text-danger">{{ $message }}</span> @enderror
+                        <label for="optionb_bn">Options B Bangla: <span class="text-danger"></span></label>
+                        @error('optionb_bn') <span class="text-danger">{{ $message }}</span> @enderror
+                         <div class="input-group">
+                             <span class="input-group-text" title="Question B" id="basic-addon1"><i class="fas fa-building"></i></span>
+                             <input type="text" value="" class=" form-control" name="optionb_bn" placeholder="Option B Bangla">
+                         </div>
+                     </div>
+                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                        <label for="optionc_en">Options C English: <span class="text-danger"></span></label>
+                        @error('optionc_en') <span class="text-danger">{{ $message }}</span> @enderror
                          <div class="input-group">
                              <span class="input-group-text" title="Question C" id="basic-addon1"><i class="fas fa-building"></i></span>
-                             <input type="text" value="" class=" form-control" name="c" placeholder="Option C">
+                             <input type="text" value="" class=" form-control" name="optionc_en" placeholder="Option C English">
                          </div>
                      </div>
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                        <label for="d">Options D: <span class="text-danger"></span></label>
-                        @error('d') <span class="text-danger">{{ $message }}</span> @enderror
+                        <label for="optionc_bn">Options C Bangla: <span class="text-danger"></span></label>
+                        @error('optionc_bn') <span class="text-danger">{{ $message }}</span> @enderror
+                         <div class="input-group">
+                             <span class="input-group-text" title="Question C" id="basic-addon1"><i class="fas fa-building"></i></span>
+                             <input type="text" value="" class=" form-control" name="optionc_bn" placeholder="Option C Bangla">
+                         </div>
+                     </div>
+                    <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                        <label for="optiond_en">Options D English: <span class="text-danger"></span></label>
+                        @error('optiond_en') <span class="text-danger">{{ $message }}</span> @enderror
                          <div class="input-group">
                              <span class="input-group-text" title="Question D" id="basic-addon1"><i class="fas fa-building"></i></span>
-                             <input type="text" value="" class=" form-control" name="d" placeholder="Option D">
+                             <input type="text" value="" class=" form-control" name="optiond_en" placeholder="Option D English">
+                         </div>
+                    </div>
+                    <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                        <label for="optiond_bn">Options D Bangla: <span class="text-danger"></span></label>
+                        @error('optiond_bn') <span class="text-danger">{{ $message }}</span> @enderror
+                         <div class="input-group">
+                             <span class="input-group-text" title="Question D" id="basic-addon1"><i class="fas fa-building"></i></span>
+                             <input type="text" value="" class=" form-control" name="optiond_bn" placeholder="Option D Bangla">
                          </div>
                     </div>
 
@@ -114,9 +154,49 @@
                                     <option value="d">D</option>
                              </select>
                          </div>
-                     </div>
-              
+                    </div>
+
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                        <label for="types">Select Quiz Types:</label>
+                        @error('types') <span class="text-danger">{{ $message }}</span> @enderror
+                         <div class="input-group">
+                             <span class="input-group-text" title="types" id="basic-addon1"><i class="fas fa-user-tie"></i></span>
+                             <select  name="types" class=" form-control">
+                              <option value="">Select Quiz Types</option>
+                                    <option value="1">Reading Quiz</option>
+                                    <option value="2">Vocabulary Quiz</option>
+                                    <option value="3">Chapter Quiz </option>
+                             </select>
+                         </div>
+                    </div>
+
+                    <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                        <label for="class_id">Class Name:</label>
+                        @error('class_id') <span class="text-danger">{{ $message }}</span> @enderror
+                        <select name="class_id" class="select2 form-control">
+                            <option value="">Select Class</option>
+                            @foreach($classes as $class)
+                                <option value="{{ $class->id }}">
+                                    {{ $class->name_en }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                        <label for="subject_id">Subject Name:</label>
+                        @error('subject_id') <span class="text-danger">{{ $message }}</span> @enderror
+                        <select name="subject_id" class="select2 form-control">
+                            <option value="">Select Subject</option>
+                            @foreach($subjects as $subject)
+                                <option value="{{ $subject->id }}">
+                                    {{ $subject->name_en }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+              
+                    <div class="form-group col-xl-12 col-lg-12 col-md-6">
                        <label for="status">Status:</label>
                        @error('status') <span class="text-danger">{{ $message }}</span> @enderror
                         <div class="input-group">

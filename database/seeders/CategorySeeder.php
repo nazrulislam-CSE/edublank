@@ -17,7 +17,8 @@ class CategorySeeder extends Seeder
 
         $categories = [
             [
-                'name'              => 'Home',
+                'name_en'           => 'Home',
+                'name_bn'           => 'হোম',
                 'slug'              => 'home',
                 'parent_id'         => null,
                 'type'              => 1,
@@ -28,7 +29,8 @@ class CategorySeeder extends Seeder
                 'created_at'        => new \DateTime ?: new \DateTime
             ],
             [
-                'name'              => 'About',
+                'name_en'           => 'About',
+                'name_bn'           => 'সম্পর্কিত',
                 'slug'              => 'about',
                 'parent_id'         => null,
                 'type'              => 1,
@@ -39,7 +41,8 @@ class CategorySeeder extends Seeder
                 'created_at'        => new \DateTime ?: new \DateTime
             ],
             [
-                'name'              => 'News',
+                'name_en'           => 'News',
+                'name_bn'           => 'খবর',
                 'slug'              => 'news',
                 'parent_id'         => null,
                 'type'              => 1,
@@ -50,7 +53,8 @@ class CategorySeeder extends Seeder
                 'created_at'        => new \DateTime ?: new \DateTime
             ],
             [
-                'name'              => 'Blog',
+                'name_en'           => 'Blog',
+                'name_bn'           => 'ব্লগ',
                 'slug'              => 'blog',
                 'parent_id'         => null,
                 'type'              => 1,
@@ -61,7 +65,8 @@ class CategorySeeder extends Seeder
                 'created_at'        => new \DateTime ?: new \DateTime
             ],
             [
-                'name'              => 'Gallery',
+                'name_en'           => 'Gallery',
+                'name_bn'           => 'গ্যালারি',
                 'slug'              => 'gallery',
                 'parent_id'         => null,
                 'type'              => 1,
@@ -72,7 +77,8 @@ class CategorySeeder extends Seeder
                 'created_at'        => new \DateTime ?: new \DateTime
             ],
             [
-                'name'              => 'Contact Us',
+                'name_en'           => 'Contact Us',
+                'name_bn'           => 'যোগাযোগ করুন',
                 'slug'              => 'contact-us',
                 'parent_id'         => null,
                 'type'              => 1,

@@ -34,7 +34,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' =>'required',
+            'name_en' =>'required',
+            'name_bn' =>'required',
             'meta_title'   =>'required',
             'keywords'     =>'required',
             'meta_description' =>'required',
@@ -44,8 +45,9 @@ class CategoryController extends Controller
 
         $user_id = Auth::guard('admin')->user()->id;
         Category::create([
-            'name' => $request->name,
-            'slug' => preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', strtolower($request->name))),
+            'name_en' => $request->name_en,
+            'name_bn' => $request->name_bn,
+            'slug' => preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', strtolower($request->name_en))),
             'type'       => $request->type,
             'meta_title'  => $request->meta_title,
             'keywords'     => implode(',', $request->keywords),
@@ -93,8 +95,9 @@ class CategoryController extends Controller
         $user_id = Auth::guard('admin')->user()->id;
 
         $category = Category::find($id);
-        $category->name = $request->name;
-        $category->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', strtolower($request->name)));
+        $category->name_en = $request->name_en;
+        $category->name_bn = $request->name_bn;
+        $category->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', strtolower($request->name_en)));
         $category->meta_title = $request->meta_title;
         $category->type = $request->type;
         $category->keywords = implode(',', $request->keywords);

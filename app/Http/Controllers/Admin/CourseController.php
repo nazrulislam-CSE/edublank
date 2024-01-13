@@ -54,6 +54,8 @@ class CourseController extends Controller
         ]);
 
         $course = new Course;
+        $user_id = Auth::guard('admin')->user()->id;
+        
         $course->category_id = $request->category_id;
         $course->instructor_id = $request->instructor_id;
         $course->course_title = $request->course_title;
@@ -76,6 +78,7 @@ class CourseController extends Controller
         $course->promo_code = mt_rand(1000, 9999);
         $course->discount_type = $request->discount_type;
         $course->status = $request->status;
+        $course->updated_by = $user_id;
         $course->save();
 
         if ($request->file('course_image')) {

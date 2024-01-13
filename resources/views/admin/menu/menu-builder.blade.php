@@ -58,7 +58,7 @@
     left: 0;
     min-height: 50px;
     position: fixed;
-    background: url('{{ asset("backend/one-ui-template/assets/loading.gif")}}') no-repeat center; 
+    background: url('{{ asset("dashboard/img/loading.gif")}}') no-repeat center; 
 }
 .collapse_angle {
     background: #46c37b;
@@ -190,17 +190,17 @@
                             @foreach($categories as $cat)                                                
                             <div class="custom-control custom-checkbox custom-control-success custom-control-lg mb-1">
                                 <input type="checkbox" class="custom-control-input" id="{{$cat->id}}" name="select-category[]" value="{{$cat->id}}">
-                                <label class="custom-control-label" for="{{ $cat->id }}" style="cursor: pointer;">{{$cat->name}}</label>
+                                <label class="custom-control-label" for="{{ $cat->id }}" style="cursor: pointer;">{{$cat->name_en}}</label>
                             </div>
                             @foreach($cat->subcategory as $subcategory)
                                 <div class="custom-control custom-checkbox custom-control-success custom-control-lg mb-1">
                                     <input type="checkbox" class="custom-control-input" id="{{$subcategory->id}}" name="select-subcategory[]" value="{{$subcategory->id}}">
-                                    <label class="custom-control-label" for="{{ $subcategory->id }}" style="cursor: pointer;">{{$subcategory->name}}</label>
+                                    <label class="custom-control-label" for="{{ $subcategory->id }}" style="cursor: pointer;">{{$subcategory->name_en}}</label>
                                 </div>
                                 @foreach($subcategory->subcategory as $childcategory)
                                     <div class="custom-control custom-checkbox custom-control-success custom-control-lg mb-1">
                                         <input type="checkbox" class="custom-control-input" id="{{$childcategory->id}}" name="select-childcategory[]" value="{{$childcategory->id}}">
-                                        <label class="custom-control-label" for="{{ $childcategory->id }}" style="cursor: pointer;">{{$childcategory->name}}</label>
+                                        <label class="custom-control-label" for="{{ $childcategory->id }}" style="cursor: pointer;">{{$childcategory->name_en}}</label>
                                     </div>
                                 @endforeach
                             @endforeach
@@ -244,7 +244,7 @@
                             @foreach($pages as $key=> $page)                                              
                               <div class="custom-control custom-checkbox custom-control-success custom-control-lg mb-1">
                                   <input type="checkbox" class="custom-control-input" id="{{ $page->id }}" name="select-page[]" value="{{$page->id}}">
-                                  <label class="custom-control-label" for="{{ $page->id }}" style="cursor: pointer;">{{$page->page_name}}</label>
+                                  <label class="custom-control-label" for="{{ $page->id }}" style="cursor: pointer;">{{$page->page_name_en}}</label>
                               </div>
                             @endforeach
                           </div>
@@ -282,11 +282,11 @@
                     <div class="panel-body border">
                       <div class="item-list-body">
                           <div class="col-12" id="custom-list">
-                            <div class="form-group">
+                            <div class="form-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="URL">
                               <label>URL  <strong id="url_required" class="text-danger font-weaight-bolder"></strong></label>
                               <input type="url" name="url" id="url" class="form-control" placeholder="https://">
                            </div>
-                           <div class="form-group">
+                           <div class="form-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Link Text">
                               <label>Link Text <strong id="linktext_required" class="text-danger font-weaight-bolder"></strong></label>
                               <input type="text" id="linktext" class="form-control" placeholder="Enter link text">
                            </div>
@@ -327,7 +327,7 @@
                           <div class="form-group col-xl-12 col-lg-12 col-md-6">
                             <label for="name">Menu Name: <span class="text-danger"></span></label>
                             @error('name') <span class="text-danger">{{ $message }}</span> @enderror
-                              <div class="input-group">
+                              <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Menu Name">
                                  <span class="input-group-text" title="Menu Name" id="basic-addon1"><i class="fas fa-tags" title="Menu Name"></i></span>
                                  <input type="text" value="" class=" form-control" name="name" placeholder="Enter New Menu Name" required>
                              </div>
@@ -354,7 +354,7 @@
                                   <li class="dd-item dd3-item" id="item{{$menuitem->id}}" data-id="{{$menuitem->id}}">
                                       <div class="dd-handle dd3-handle"></div>
                                       <div class="dd3-content shadow">
-                                          {{$menuitem->title}}
+                                          {{$menuitem->title_en}}
                                           <button href="#collapse{{$menuitem->id}}" class="pull-right collapse_angle" data-bs-toggle="collapse">
                                               <i class="fa fa-angle-down" style="cursor: pointer;"></i>
                                           </button>
@@ -368,8 +368,14 @@
                                               <div class="row">
                                                 <div class="col-sm-6">
                                                   <div class="form-group">
-                                                      <label for="title">Title</label>
-                                                      <input type="text" name="title" value="{{$menuitem->title}}" id="title" class="form-control" placeholder="Enter title">
+                                                      <label for="title_en">Title English</label>
+                                                      <input type="text" name="title_en" value="{{$menuitem->title_en}}" id="title_en" class="form-control" placeholder="Enter title English">
+                                                  </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                  <div class="form-group">
+                                                      <label for="title_bn">Title Bangla</label>
+                                                      <input type="text" name="title_bn" value="{{$menuitem->title_bn}}" id="title_bn" class="form-control" placeholder="Enter title Bangla">
                                                   </div>
                                                 </div>
                                                 <div class="col-sm-6">
@@ -424,8 +430,14 @@
                                                       <div class="row">
                                                         <div class="col-sm-6">
                                                           <div class="form-group">
-                                                              <label for="title">Title</label>
-                                                              <input type="text" name="title" value="{{$subMenu->title}}" id="title" class="form-control" placeholder="Enter title">
+                                                              <label for="title">Title English</label>
+                                                              <input type="text" name="title_en" value="{{$subMenu->title_en}}" id="title_en" class="form-control" placeholder="Enter Title English">
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                          <div class="form-group">
+                                                              <label for="title">Title Bangla</label>
+                                                              <input type="text" name="title_bn" value="{{$subMenu->title_bn}}" id="title_bn" class="form-control" placeholder="Enter Title Bangla">
                                                           </div>
                                                         </div>
                                                         <div class="col-sm-6">
@@ -465,7 +477,7 @@
                                                       <li class="dd-item dd3-item" id="item{{$childMenu->id}}" data-id="{{$childMenu->id}}">
                                                           <div class="dd-handle dd3-handle"></div>
                                                           <div class="dd3-content">
-                                                              {{$childMenu->title}}
+                                                              {{$childMenu->title_en}}
                                                               <button href="#collapse{{$childMenu->id}}" class="pull-right collapse_angle" data-bs-toggle="collapse">
                                                                   <i class="fa fa-angle-down"></i>
                                                               </button>
@@ -479,8 +491,14 @@
                                                                   <div class="row">
                                                                     <div class="col-sm-6">
                                                                       <div class="form-group">
-                                                                          <label for="title">Title</label>
-                                                                          <input type="text" name="title" value="{{$childMenu->title}}" id="title" class="form-control" placeholder="Enter title">
+                                                                          <label for="title_en">Title English</label>
+                                                                          <input type="text" name="title_en" value="{{$childMenu->title_en}}" id="title_en" class="form-control" placeholder="Enter Title English">
+                                                                      </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                      <div class="form-group">
+                                                                          <label for="title_bn">Title Bangla</label>
+                                                                          <input type="text" name="title_bn" value="{{$childMenu->title_bn}}" id="title_bn" class="form-control" placeholder="Enter Title Bangla">
                                                                       </div>
                                                                     </div>
                                                                     <div class="col-sm-6">

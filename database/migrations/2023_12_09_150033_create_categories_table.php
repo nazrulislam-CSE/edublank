@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->string('name_en')->nullable();
+            $table->string('name_bn')->nullable();
             $table->string('slug')->nullable();
             $table->integer('parent_id')->nullable();
             $table->unsignedTinyInteger('type')->default(1)->comment('1=>Category, 2=>Blog Category, 3=>Portfolio Category');

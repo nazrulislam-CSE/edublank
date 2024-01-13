@@ -68,6 +68,9 @@
                                             <th class="border-bottom-0">Option C</th>
                                             <th class="border-bottom-0">Option D</th>
                                             <th class="border-bottom-0">Answer</th>
+                                            <th class="border-bottom-0">Types</th>
+                                            <th class="border-bottom-0">Class Name</th>
+                                            <th class="border-bottom-0">Subject Name</th>
                                             <th class="border-bottom-0">Status</th>
                                             <th class="border-bottom-0">Actions</th>
                                         </tr>
@@ -76,11 +79,11 @@
                                         @foreach ($questions as $key=> $question)
                                         <tr>
                                             <td class="col-1">{{ $key+1 }}</td>
-                                            <td>{{ $question->question ?? 'Null'}}</td>
-                                            <td>{{ $question->a ?? 'Null'}}</td>
-                                            <td>{{ $question->b ?? 'Null'}}</td>
-                                            <td>{{ $question->c ?? 'Null'}}</td>
-                                            <td>{{ $question->d ?? 'Null'}}</td>
+                                            <td>{{ $question->question_en ?? 'Null'}}</td>
+                                            <td>{{ $question->optiona_en ?? 'Null'}}</td>
+                                            <td>{{ $question->optionb_en ?? 'Null'}}</td>
+                                            <td>{{ $question->optionc_en ?? 'Null'}}</td>
+                                            <td>{{ $question->optiond_en ?? 'Null'}}</td>
                                             <td>
                                                 @if($question->answer == 'a')
                                                     <a href="#" class="badge bg-pill bg-success">Option A Correct Answer</a>
@@ -94,6 +97,20 @@
                                                     <a href="#" class="badge bg-pill bg-danger">No Correct Answer</a>
                                                 @endif
                                             </td>
+                                            <td>
+                                                @if($question->types == '1')
+                                                    <a href="#" class="badge bg-pill bg-success">Reading Quiz</a>
+                                                @elseif($question->types == '2')
+                                                    <a href="#" class="badge bg-pill bg-success">Vocabulary Quiz</a>
+                                                @elseif($question->types == '3')
+                                                    <a href="#" class="badge bg-pill bg-success">Chapter Quiz</a>
+                                                @else
+                                                    
+                                                @endif
+                                            </td>
+                                            <td>{{ $question->class->name_en ?? 'Null'}}</td>
+                                            <td>{{ $question->subject->name_en ?? 'Null'}}</td>
+                                           
                                             <td>
                                                 @if($question->status == 1)
                                                     <a href="#" class="badge bg-pill bg-success">Active</a>

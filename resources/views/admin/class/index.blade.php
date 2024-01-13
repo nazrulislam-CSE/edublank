@@ -48,11 +48,11 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header border-bottom d-flex justify-content-between align-items-center">
-                            <p class="card-title my-0">{{ $pageTitle ?? 'Page Title'}} <span class="badge bg-danger side-badge" style="font-size:17px;">{{ count($categories) }}</span> </p>
+                            <p class="card-title my-0">{{ $pageTitle ?? 'Page Title'}} <span class="badge bg-danger side-badge" style="font-size:17px;">{{ count($classes) }}</span> </p>
 
                             <div class="d-flex">
-                                <a href="{{ route('admin.category.create')}}" class="btn btn-success me-2">
-                                    <i class="fas fa-list d-inline"></i> Add Now Category
+                                <a href="{{ route('admin.class.create')}}" class="btn btn-success me-2">
+                                    <i class="fas fa-list d-inline"></i> Add Now Class
                                 </a>
                             </div>
                         </div>
@@ -64,39 +64,29 @@
                                             <th class="border-bottom-0">SL</th>
                                             <th class="border-bottom-0">Name English</th>
                                             <th class="border-bottom-0">Name Bangla</th>
-                                            <th class="border-bottom-0">Slug</th>
-                                            <th class="border-bottom-0">Category Type</th>
+                                            <th class="border-bottom-0">Subject Name</th>
                                             <th class="border-bottom-0">Status</th>
                                             <th class="border-bottom-0">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($categories as $key=> $category)
+                                        @foreach ($classes as $key=> $class)
                                         <tr>
                                             <td class="col-1">{{ $key+1 }}</td>
-                                            <td>{{ $category->name_en ?? 'Null'}}</td>
-                                            <td>{{ $category->name_bn ?? 'Null'}}</td>
-                                            <td>{{ $category->slug ?? 'Null'}}</td>
+                                            <td>{{ $class->name_en ?? 'Null'}}</td>
+                                            <td>{{ $class->name_bn ?? 'Null'}}</td>
+                                            <td>{{ $class->subject->name_en ?? 'Null'}}</td>
                                             <td>
-                                                @if($category->type == 1)
-                                                    <a href="#" class="badge bg-pill bg-success text-light">Category</a>
-                                                @elseif($category->type == 2)
-                                                    <a href="#" class="badge bg-pill bg-danger text-light">Blog</a>
-                                                @elseif($category->type == 3)
-                                                    <a href="#" class="badge bg-pill bg-primary text-light">Portfolio</a>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @if($category->status == 1)
+                                                @if($class->status == 1)
                                                     <a href="#" class="badge bg-pill bg-success">Active</a>
                                                 @else
                                                     <a href="#" class="badge bg-pill bg-danger">Disable</a>
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.category.show',$category->id)}}" class="btn btn-success btn-sm mr-2"><i class="fas fa-eye"></i></a>
-                                                <a href="{{ route('admin.category.edit',$category->id)}}" class="btn btn-primary btn-sm mr-2"><i class="fas fa-edit"></i></a>
-                                                <a href="{{ route('admin.category.delete',$category->id)}}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
+                                                <a href="{{ route('admin.class.show',$class->id)}}" class="btn btn-success btn-sm mr-2"><i class="fas fa-eye"></i></a>
+                                                <a href="{{ route('admin.class.edit',$class->id)}}" class="btn btn-primary btn-sm mr-2"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ route('admin.class.delete',$class->id)}}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         @endforeach

@@ -58,26 +58,46 @@
        <div class="table-responsive">
           <table class="table table-bordered">
              <tr>
-                <td>Question Name</td>
-                <td>{{ $question->question ?? 'NULL' }}</td>
+                <td>Question Name English</td>
+                <td>{{ $question->question_en ?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td>Option A</td>
-                <td>{{ $question->a?? 'NULL' }}</td>
+                <td>Question Name Bangla</td>
+                <td>{{ $question->question_bn ?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td>Option B</td>
-                <td>{{ $question->b?? 'NULL' }}</td>
+                <td>Option A English</td>
+                <td>{{ $question->optiona_en?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td>Option C</td>
-                <td>{{ $question->c?? 'NULL' }}</td>
+                <td>Option A Bangla</td>
+                <td>{{ $question->optiona_bn?? 'NULL' }}</td>
              </tr>
              <tr>
-                <td>Option D</td>
-                <td>{{ $question->d?? 'NULL' }}</td>
+                <td>Option B English</td>
+                <td>{{ $question->optionb_en?? 'NULL' }}</td>
              </tr>
-            </tr>
+             <tr>
+                <td>Option B Bangla</td>
+                <td>{{ $question->optionb_bn?? 'NULL' }}</td>
+             </tr>
+             <tr>
+                <td>Option C English</td>
+                <td>{{ $question->optionc_en?? 'NULL' }}</td>
+             </tr>
+             <tr>
+                <td>Option C Bangla</td>
+                <td>{{ $question->optionc_bn?? 'NULL' }}</td>
+             </tr>
+             <tr>
+                <td>Option D English</td>
+                <td>{{ $question->optiond_en?? 'NULL' }}</td>
+             </tr>
+             <tr>
+                <td>Option D Bangla</td>
+                <td>{{ $question->optiond_bn?? 'NULL' }}</td>
+             </tr>
+            <tr>
             <td>Answer</td>
             <td>
                 @if($question->answer == 'a')
@@ -94,6 +114,37 @@
 
             </td>
             </tr>
+            <tr>
+            <td>Types</td>
+            <td>
+                @if($question->types == '1')
+                    <a href="#" class="badge bg-pill bg-success">Reading Quiz</a>
+                @elseif($question->types == '2')
+                    <a href="#" class="badge bg-pill bg-success">Vocabulary Quiz</a>
+                @elseif($question->types == '3')
+                    <a href="#" class="badge bg-pill bg-success">Chapter Quiz</a>
+                @else
+                   
+                @endif
+
+            </td>
+            </tr>
+            <tr>
+                <td>Class Name English</td>
+                <td>{{ $question->class->name_en?? 'NULL' }}</td>
+             </tr>
+             <tr>
+                <td>Class Name Bangla</td>
+                <td>{{ $question->class->name_bn?? 'NULL' }}</td>
+             </tr>
+             <tr>
+                <td>Subject Name English</td>
+                <td>{{ $question->subject->name_en?? 'NULL' }}</td>
+             </tr>
+             <tr>
+                <td>Subject Name Bangla</td>
+                <td>{{ $question->subject->name_bn?? 'NULL' }}</td>
+             </tr>
              </tr>
              <td>Status</td>
              <td>

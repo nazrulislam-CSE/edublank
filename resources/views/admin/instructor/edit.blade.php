@@ -62,7 +62,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                        <label for="name"> Name: <span class="text-danger"></span></label>
                        @error('name') <span class="text-danger">{{ $message }}</span> @enderror
-                        <div class="input-group">
+                        <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Instructor Name">
                             <span class="input-group-text" title="Instructor Name" id="basic-addon1"><i class="fas fa-user"></i></span>
                             <input type="text" value="{{ $instructor->name ?? 'Null'}}" class=" form-control" name="name" placeholder="Instructor Name">
                         </div>
@@ -70,7 +70,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="username"> Username: <span class="text-danger"></span></label>
                         @error('username') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Instructor Username">
                              <span class="input-group-text" title="Instructor Username" id="basic-addon1"><i class="fas fa-user"></i></span>
                              <input type="text"  value="{{ $instructor->username ?? 'Null'}}" class=" form-control" name="username" placeholder="Instructor Username">
                          </div>
@@ -79,7 +79,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="email"> Email: <span class="text-danger"></span></label>
                         @error('email') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Instructor Email">
                              <span class="input-group-text" title="Instructor Email" id="basic-addon1"><i class="fas fa-envelope"></i></span>
                              <input type="email"  value="{{ $instructor->email ?? 'Null'}}" class=" form-control" name="email" placeholder="Instructor Email">
                          </div>
@@ -88,7 +88,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="phone"> Phone: <span class="text-danger"></span></label>
                         @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Instructor Phone">
                              <span class="input-group-text" title="Instructor Phone" id="basic-addon1"><i class="fas fa-phone"></i></span>
                              <input type="number" min="0"  value="{{ $instructor->phone ?? 'Null'}}" class=" form-control" name="phone" placeholder="Instructor Phone">
                          </div>
@@ -97,7 +97,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="present_address"> Address: <span class="text-danger"></span></label>
                         @error('present_address') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Instructor Address">
                              <span class="input-group-text" title="Instructor Address" id="basic-addon1"><i class="fas fa-user-shield"></i></span>
                              <input type="text" value="{{ $instructor->present_address ?? 'Null'}}" class=" form-control" name="present_address" placeholder="Instructor Address">
                          </div>
@@ -106,7 +106,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="designation">Designation : <span class="text-danger"></span></label>
                         @error('designation') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Instructor Designation">
                              <span class="input-group-text" title="Instructor Designation " id="basic-addon1"><i class="fas fa-user-shield"></i></span>
                              <input type="text" class=" form-control" value="{{ $instructor->designation ?? 'Null'}}" name="designation" placeholder="Instructor Designation">
                          </div>
@@ -115,7 +115,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="facebook_url"> Facebook Link: <span class="text-danger"></span></label>
                         @error('facebook_url') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Instructor Facebook Link">
                              <span class="input-group-text" title="Instructor Facebook Link" id="basic-addon1"><i class="fab fa-facebook-square"></i></span>
                              <input type="text" class=" form-control" name="facebook_url" value="{{ $instructor->facebook_url ?? 'Null'}}" placeholder="Instructor Facebook Link">
                          </div>
@@ -124,7 +124,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="linkedin_url"> Linkedin Link: <span class="text-danger"></span></label>
                         @error('linkedin_url') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Instructor Linkedin Link">
                              <span class="input-group-text" title="Instructor Linkedin Link" id="basic-addon1"><i class="fab fa-linkedin"></i></span>
                              <input type="text"class=" form-control"  name="linkedin_url" value="{{ $instructor->linkedin_url ?? 'Null'}}" placeholder="Instructor Linkedin Link">
                          </div>
@@ -133,7 +133,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="twitter_url"> Twitter Link: <span class="text-danger"></span></label>
                         @error('twitter_url') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Instructor Twitter Link">
                              <span class="input-group-text" title="Instructor Twitter Link" id="basic-addon1"><i class="fab fa-twitter"></i></span>
                              <input type="text" value="{{ $instructor->twitter_url ?? 'Null'}}" class=" form-control" name="twitter_url" placeholder="Instructor Twitter Link">
                          </div>
@@ -142,7 +142,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="instagram_url"> Instagram Link: <span class="text-danger"></span></label>
                         @error('instagram_url') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Instructor Instagram Link">
                              <span class="input-group-text" title="Instructor Instagram Link" id="basic-addon1"><i class="fab fa-instagram"></i></span>
                              <input type="text" value="{{ $instructor->instagram_url ?? 'Null'}}" class=" form-control" name="instagram_url" placeholder="Instructor Instagram Link">
                          </div>
@@ -151,7 +151,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="about">About: <span class="text-danger"></span></label>
                         @error('about') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Instructor About">
                              <span class="input-group-text" title="Instructor Instagram Link" id="basic-addon1"><i class="fas fa-eject"></i></span>
                              <textarea name="about" class="form-control" id="" cols="2" rows="2" placeholder="Instructor About here">{{ $instructor->about }}</textarea>
                          </div>
@@ -160,7 +160,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                        <label for="status">Status:</label>
                        @error('status') <span class="text-danger">{{ $message }}</span> @enderror
-                        <div class="input-group">
+                        <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Status">
                             <span class="input-group-text" title="Name" id="basic-addon1"><i class="fas fa-user-tie" title="Name"></i></span>
                             <select  name="status" class=" form-control">
                              <option value="">Select Status</option>
@@ -173,7 +173,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="photo">Photo:</label>
                         @error('photo') <span class="text-danger">{{ $message }}</span> @enderror
-                        <div class="input-group">
+                        <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Instructor Photo">
                             <span class="input-group-text" title="Name" id="basic-addon1"><i class="fas fa-photo-video"></i></span>
                             <input type="file" name="photo" id="photo" class="form-control bg-white">
                         </div>

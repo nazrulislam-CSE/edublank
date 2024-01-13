@@ -62,8 +62,10 @@
                                     <thead>
                                         <tr>
                                             <th class="border-bottom-0">SL</th>
-                                            <th class="border-bottom-0">Page Name</th>
-                                            <th class="border-bottom-0">Page Title</th>
+                                            <th class="border-bottom-0">Page Name English</th>            
+                                            <th class="border-bottom-0">Page Name Bangla</th>            
+                                            <th class="border-bottom-0">Page Title English</th>
+                                            <th class="border-bottom-0">Page Title Bangla</th>
                                             <th class="border-bottom-0">Page Link</th>
                                             <th class="border-bottom-0">Page Position</th>
                                             <th class="border-bottom-0">Is Default</th>
@@ -75,8 +77,10 @@
                                         @foreach ($pages as $key=> $page)
                                         <tr>
                                             <td class="col-1">{{ $key+1 }}</td>
-                                            <td>{{ $page->page_name ?? 'Null'}}</td>
-                                            <td>{{ $page->page_title ?? 'Null'}}</td>
+                                            <td>{{ $page->page_name_en ?? 'Null'}}</td>
+                                            <td>{{ $page->page_name_bn ?? 'Null'}}</td>
+                                            <td>{{ $page->page_title_en ?? 'Null'}}</td>
+                                            <td>{{ $page->page_title_bn ?? 'Null'}}</td>
                                             <td>
                                                 <a class="btn btn-success btn-sm text-light mt-2" href="{{url(($page->page_slug == 'homepage') ? '/' :  $page->page_slug)}}" target="_blank">Copy Link <i class="far fa-copy"></i> </a>
                                             </td>

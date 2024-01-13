@@ -60,18 +60,27 @@
                 @csrf
               <div class="row">
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                       <label for="name">Category Name: <span class="text-danger"></span></label>
-                       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
-                        <div class="input-group">
-                            <span class="input-group-text" title="Category Name" id="basic-addon1"><i class="fas fa-tags" title="Category Name"></i></span>
-                            <input type="text" value="{{ $category->name }}" class=" form-control" name="name" placeholder="Category Name">
-                        </div>
-                    </div>
+                        <label for="name_en">Category Name English: <span class="text-danger"></span></label>
+                        @error('name_en') <span class="text-danger">{{ $message }}</span> @enderror
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Category Name English">
+                             <span class="input-group-text" title="Category Name" id="basic-addon1"><i class="fas fa-tags"></i></span>
+                             <input type="text" value="{{ $category->name_en }}" class=" form-control" name="name_en" placeholder="Category Name English">
+                         </div>
+                     </div>
+ 
+                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                         <label for="name_bn">Category Name Bangla: <span class="text-danger"></span></label>
+                         @error('name_bn') <span class="text-danger">{{ $message }}</span> @enderror
+                          <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Category Name Bangla">
+                              <span class="input-group-text" title="Category Name" id="basic-addon1"><i class="fas fa-tags"></i></span>
+                              <input type="text" value="{{ $category->name_bn }}" class=" form-control" name="name_bn" placeholder="Category Name Bangla">
+                          </div>
+                      </div>
 
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="meta_title">Meta Title: <span class="text-danger"></span></label>
                         @error('meta_title') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Meta Title">
                              <span class="input-group-text" title="Meta Title" id="basic-addon1"><i class="fas fa-tags"></i></span>
                              <input type="text" value="{{ $category->meta_title }}" class=" form-control" name="meta_title" placeholder="Meta Title">
                          </div>
@@ -80,7 +89,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="keywords">Meta Keywords <small class="text-danger">( Write meta keywords Separated by Comma[,] )</small></label>
                         @error('keywords') <span class="text-danger">{{ $message }}</span> @enderror
-                            <div class="text-wrap">
+                            <div class="text-wrap" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Meta Keywords">
                                 <div class="example">
                                 <input type="text" name="keywords[]" data-role="tagsinput" value="{{ $category->keywords}}" class="form-control" placeholder="Enter type meta keywords here">
                             </div>
@@ -90,27 +99,29 @@
                     <div class="form-group col-xl-12 col-lg-12  col-md-6">
                         <label for="meta_description">Meta Description:</label>
                         @error('meta_description') <span class="text-danger">{{ $message }}</span> @enderror
-                        <textarea name="meta_description" id="meta_description">{{ $category->meta_description }}</textarea>
+                        <div class="text-wrap" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Meta description">
+                            <textarea name="meta_description" id="meta_description" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Meta Description">{{ $category->meta_description }}</textarea>
+                        </div>
                     </div>
 
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="type">Category Type For:</label>
                         @error('type') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
-                             <span class="input-group-text" title="Type" id="basic-addon1"><i class="fas fa-user-tie" title="Name"></i></span>
-                             <select  name="type" class=" form-control">
-                              <option value="">Select type</option>
-                                    <option value="1" @if($category->type == 1) selected @endif>Category</option>
-                                    <option value="2" @if($category->type == 2) selected @endif>Blog</option>
-                                    <option value="3" @if($category->type == 3) selected @endif>Portfolio</option>
-                             </select>
-                         </div>
-                     </div>
+                        <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Category Type">
+                            <span class="input-group-text" title="Type" id="basic-addon1"><i class="fas fa-user-tie" title="Name"></i></span>
+                            <select  name="type" class=" form-control">
+                                <option value="">Select type</option>
+                                <option value="1" @if($category->type == 1) selected @endif>Category</option>
+                                <option value="2" @if($category->type == 2) selected @endif>Blog</option>
+                                <option value="3" @if($category->type == 3) selected @endif>Portfolio</option>
+                            </select>
+                        </div>
+                    </div>
               
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                        <label for="status">Status:</label>
                        @error('status') <span class="text-danger">{{ $message }}</span> @enderror
-                        <div class="input-group">
+                        <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Status">
                             <span class="input-group-text" title="Name" id="basic-addon1"><i class="fas fa-user-tie" title="Name"></i></span>
                             <select  name="status" class=" form-control">
                              <option value="">Select Status</option>
@@ -138,7 +149,7 @@
             'use strict';
             $(document).ready(function() {
                 $('#meta_description').summernote({
-                    placeholder: 'Please some content here'
+                    placeholder: 'Please Meta Description here'
                 });
             });
         });
