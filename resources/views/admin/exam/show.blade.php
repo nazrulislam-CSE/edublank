@@ -55,44 +55,68 @@
        </div>
    </div>
     <div class="card-body">
-       <div class="table-responsive">
-            <table class="table table-bordered">
-                <tr>
-                    <td>Exam Title English</td>
-                    <td>{{ $exam->title_en ?? 'NULL' }}</td>
-                </tr>
-                <tr>
-                    <td>Exam Title Bangla</td>
-                    <td>{{ $exam->title_bn ?? 'NULL' }}</td>
-                </tr>
-                <tr>
-                    <td>Exam Code</td>
-                    <td>{{ $exam->code ?? 'NULL' }}</td>
-                </tr>
-                <tr>
-                    <td>Exam Date</td>
-                    <td>{{ $exam->date ?? 'NULL' }}</td>
-                </tr>
-                <tr>
-                    <td>Exam Time</td>
-                    <td>{{ $exam->time ?? 'NULL' }}</td>
-                </tr>
-                <tr>
-                    <td>Exam Marks</td>
-                    <td>{{ $exam->marks ?? 'NULL' }}</td>
-                </tr>
-                <tr>
-                    <td>Status</td>
-                    <td>
-                        @if ($exam->status == 1)
-                            <span class="badge bg-pill bg-success">Active</span>
-                        @else
-                            <span class="badge bg-pill bg-success">Disable</span>
-                        @endif
-                    </td>
-                </tr>
-            </table>
-       </div>
+        <h4>Class: <span class="text-success font-weight-bolder">{{ $exam->class->name_en ?? 'Null'}}</span></h4>
+        <h4>Subject Name: <span class="text-success font-weight-bolder">{{ $exam->class->subject->name_en ?? 'Null'}}</span></h4>
+        <h4 class="text-uppercase text-center my-3 text-info">Exam Title: {{$exam->title_en}}</h4>
+        <div class="row">
+          <div class="col-md-4 col-sm-4">
+              <div class="text-center"><b>Exam Date: {{$exam->date}}</b></div>
+          </div>
+          <div class="col-md-4 col-sm-4">
+              <div class="text-center"><b>Total Time: {{$exam->totaltime}} minutes</b></div>
+          </div>
+          <div class="col-md-4 col-sm-4">
+              <div class="text-center"><b>Full Marks: {{$exam->marks}}</b></div>
+          </div>
+        </div><hr>
+        <div class="row">
+            <div class="col-md-6 col-lg-12 col-sm-4">
+                @foreach($exam->questions as $key=> $question)
+                    <div class="row text-center">
+                        <div class="col-lg-5 col-sm-12">
+                            <lebel for="question" class="">
+                                <span class="">{{$key+1}}. {{$question->question_en ?? 'Null'}}</span>
+                            </lebel>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-6 mt-2 text-center">
+                            <label class="custom-control form-radio">
+                                <input type="radio" class="custom-control-input" name="q{{ $question->id }}" value="A" {{ $question->answer == 'a' ? 'checked' : '' }}>
+                                <span class="custom-control-label">A. {{ $question->optiona_en ?? 'Null' }}</span>
+                            </label>
+                        </div>
+                        
+                        <div class="col-6 mt-2 text-center">
+                            <label class="custom-control form-radio">
+                                <input type="radio" class="custom-control-input" name="q{{$question->id}}" value="B" {{ $question->answer == 'b' ? 'checked' : '' }}>
+                                <span class="custom-control-label"> B. {{$question->optionb_en ?? 'Null'}}</span>
+                            </label>
+                        </div>
+                        <div class="col-6 mt-2 text-center">
+                            <label class="custom-control form-radio">
+                                <input type="radio" class="custom-control-input" name="q{{$question->id}}" value="C" {{ $question->answer == 'c' ? 'checked' : '' }}>
+                                <span class="custom-control-label"> C. {{$question->optionc_en ?? 'Null'}}</span>
+                            </label>
+                        </div>
+                        <div class="col-6 mt-2 text-center">
+                            <label class="custom-control form-radio">
+                                <input type="radio" class="custom-control-input" name="q{{$question->id}}" value="D" {{ $question->answer == 'd' ? 'checked' : '' }}>
+                                <span class="custom-control-label"> D. {{$question->optiond_en ?? 'Null'}}</span>
+                            </label>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-lg-4 col-sm-12">
+                                <lebel for="question" class="">
+                                    <span class="text-danger font-weight-bolder">Answer: {{ $question->answer ?? 'Null' }}</span>
+                                </lebel>
+                            </div>
+                        </div>
+                        
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </div>
  </div>
 @endsection

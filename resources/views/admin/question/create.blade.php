@@ -62,96 +62,96 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-12">
                         <label for="question_en">Question Name English: <span class="text-danger"></span></label>
                         @error('question_en') <span class="text-danger">{{ $message }}</span> @enderror
-                        <div class="input-group">
+                        <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Question Name English">
                             <span class="input-group-text" title="Question Name" id="basic-addon1"><i class="fas fa-tags"></i></span>
-                            <input type="text" value="" class=" form-control" name="question_en" placeholder="Your question Name english">
+                            <input type="text" value="{{ old('question_en')}}" class=" form-control" name="question_en" placeholder="Your question Name english">
                         </div>
                     </div>
                     <div class="form-group col-xl-6 col-lg-6 col-md-12">
                         <label for="question_bn">Question Name Bangla: <span class="text-danger"></span></label>
                         @error('question_bn') <span class="text-danger">{{ $message }}</span> @enderror
-                        <div class="input-group">
+                        <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Question Name Bangla">
                             <span class="input-group-text" title="Question Name" id="basic-addon1"><i class="fas fa-tags"></i></span>
-                            <input type="text" value="" class=" form-control" name="question_bn" placeholder="Your question Name bangla">
+                            <input type="text" value="{{ old('question_bn')}}" class=" form-control" name="question_bn" placeholder="Your question Name bangla">
                         </div>
                     </div>
                     <h4 class="text-success font-weaight-bolder">Give Options:</h4>
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                        <label for="optiona_en">Options A English: <span class="text-danger"></span></label>
                        @error('optiona_en') <span class="text-danger">{{ $message }}</span> @enderror
-                        <div class="input-group">
+                        <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option A English">
                             <span class="input-group-text" title="Question A" id="basic-addon1"><i class="fas fa-building"></i></span>
-                            <input type="text" value="" class=" form-control" name="optiona_en" placeholder="Option A English">
+                            <input type="text" value="{{ old('optiona_en')}}" class=" form-control" name="optiona_en" placeholder="Option A English">
                         </div>
                     </div>
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                        <label for="optiona_en">Options A Bangla: <span class="text-danger"></span></label>
+                        <label for="optiona_bn">Options A Bangla: <span class="text-danger"></span></label>
                         @error('optiona_bn') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option A Bangla">
                              <span class="input-group-text" title="Question A" id="basic-addon1"><i class="fas fa-building"></i></span>
-                             <input type="text" value="" class=" form-control" name="optiona_bn" placeholder="Option A Bangla">
+                             <input type="text" value="{{ old('optiona_bn')}}" class=" form-control" name="optiona_bn" placeholder="Option A Bangla">
                          </div>
                      </div>
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optionb_en">Options B English: <span class="text-danger"></span></label>
                         @error('optionb_en') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option B English">
                              <span class="input-group-text" title="Question B" id="basic-addon1"><i class="fas fa-building"></i></span>
-                             <input type="text" value="" class=" form-control" name="optionb_en" placeholder="Option B English">
+                             <input type="text" value="{{ old('optionb_en')}}" class=" form-control" name="optionb_en" placeholder="Option B English">
                          </div>
                      </div>
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optionb_bn">Options B Bangla: <span class="text-danger"></span></label>
                         @error('optionb_bn') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option B Bangla">
                              <span class="input-group-text" title="Question B" id="basic-addon1"><i class="fas fa-building"></i></span>
-                             <input type="text" value="" class=" form-control" name="optionb_bn" placeholder="Option B Bangla">
+                             <input type="text" value="{{ old('optionb_bn')}}" class=" form-control" name="optionb_bn" placeholder="Option B Bangla">
                          </div>
                      </div>
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optionc_en">Options C English: <span class="text-danger"></span></label>
                         @error('optionc_en') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option C English">
                              <span class="input-group-text" title="Question C" id="basic-addon1"><i class="fas fa-building"></i></span>
-                             <input type="text" value="" class=" form-control" name="optionc_en" placeholder="Option C English">
+                             <input type="text" value="{{ old('optionc_en')}}" class=" form-control" name="optionc_en" placeholder="Option C English">
                          </div>
                      </div>
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optionc_bn">Options C Bangla: <span class="text-danger"></span></label>
                         @error('optionc_bn') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option C Bangla">
                              <span class="input-group-text" title="Question C" id="basic-addon1"><i class="fas fa-building"></i></span>
-                             <input type="text" value="" class=" form-control" name="optionc_bn" placeholder="Option C Bangla">
+                             <input type="text" value="{{ old('optionc_bn')}}" class=" form-control" name="optionc_bn" placeholder="Option C Bangla">
                          </div>
                      </div>
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optiond_en">Options D English: <span class="text-danger"></span></label>
                         @error('optiond_en') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option D English">
                              <span class="input-group-text" title="Question D" id="basic-addon1"><i class="fas fa-building"></i></span>
-                             <input type="text" value="" class=" form-control" name="optiond_en" placeholder="Option D English">
+                             <input type="text" value="{{ old('optiond_en')}}" class=" form-control" name="optiond_en" placeholder="Option D English">
                          </div>
                     </div>
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optiond_bn">Options D Bangla: <span class="text-danger"></span></label>
                         @error('optiond_bn') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option D Bangla">
                              <span class="input-group-text" title="Question D" id="basic-addon1"><i class="fas fa-building"></i></span>
-                             <input type="text" value="" class=" form-control" name="optiond_bn" placeholder="Option D Bangla">
+                             <input type="text" value="{{ old('optiond_bn')}}" class=" form-control" name="optiond_bn" placeholder="Option D Bangla">
                          </div>
                     </div>
 
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="answer">Select Your Answer:</label>
                         @error('answer') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Select Your Answer">
                              <span class="input-group-text" title="Answer" id="basic-addon1"><i class="fas fa-user-tie"></i></span>
                              <select  name="answer" class=" form-control">
                               <option value="">Select Answer</option>
-                                    <option value="a">A</option>
-                                    <option value="b">B</option>
-                                    <option value="c">C</option>
-                                    <option value="d">D</option>
+                                    <option value="a" {{ old('answer') == 'a' ? 'selected' : '' }}>A</option>
+                                    <option value="b" {{ old('answer') == 'b' ? 'selected' : '' }}>B</option>
+                                    <option value="c" {{ old('answer') == 'c' ? 'selected' : '' }}>C</option>
+                                    <option value="d" {{ old('answer') == 'd' ? 'selected' : '' }}>D</option>
                              </select>
                          </div>
                     </div>
@@ -159,13 +159,13 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="types">Select Quiz Types:</label>
                         @error('types') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Select Quiz Types">
                              <span class="input-group-text" title="types" id="basic-addon1"><i class="fas fa-user-tie"></i></span>
                              <select  name="types" class=" form-control">
                               <option value="">Select Quiz Types</option>
-                                    <option value="1">Reading Quiz</option>
-                                    <option value="2">Vocabulary Quiz</option>
-                                    <option value="3">Chapter Quiz </option>
+                                    <option value="1" {{ old('types') == '1' ? 'selected' : '' }}>Reading Quiz</option>
+                                    <option value="2" {{ old('types') == '2' ? 'selected' : '' }}>Vocabulary Quiz</option>
+                                    <option value="3" {{ old('types') == '3' ? 'selected' : '' }}>Chapter Quiz </option>
                              </select>
                          </div>
                     </div>
@@ -173,38 +173,42 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="class_id">Class Name:</label>
                         @error('class_id') <span class="text-danger">{{ $message }}</span> @enderror
-                        <select name="class_id" class="select2 form-control">
-                            <option value="">Select Class</option>
-                            @foreach($classes as $class)
-                                <option value="{{ $class->id }}">
-                                    {{ $class->name_en }}
-                                </option>
-                            @endforeach
-                        </select>
+                        <div class="warp" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Select Class Name">
+                            <select name="class_id" class="select2 form-control">
+                                <option value="">Select Class</option>
+                                @foreach($classes as $class)
+                                    <option value="{{ $class->id }}">
+                                        {{ $class->name_en }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
 
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="subject_id">Subject Name:</label>
                         @error('subject_id') <span class="text-danger">{{ $message }}</span> @enderror
-                        <select name="subject_id" class="select2 form-control">
-                            <option value="">Select Subject</option>
-                            @foreach($subjects as $subject)
-                                <option value="{{ $subject->id }}">
-                                    {{ $subject->name_en }}
-                                </option>
-                            @endforeach
+                        <div class="warp" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Select Subject Name">
+                            <select name="subject_id" class="select2 form-control">
+                                <option value="">Select Subject</option>
+                                @foreach($subjects as $subject)
+                                    <option value="{{ $subject->id }}">
+                                        {{ $subject->name_en }}
+                                    </option>
+                                @endforeach
                         </select>
+                        </div>
                     </div>
               
                     <div class="form-group col-xl-12 col-lg-12 col-md-6">
                        <label for="status">Status:</label>
                        @error('status') <span class="text-danger">{{ $message }}</span> @enderror
-                        <div class="input-group">
+                        <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Select Status">
                             <span class="input-group-text" title="Name" id="basic-addon1"><i class="fas fa-user-tie" title="Name"></i></span>
                             <select  name="status" class=" form-control">
                              <option value="">Select Status</option>
-                                <option value="1">Active</option>
-                                <option value="0">Deactive</option>
+                                <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Active</option>
+                                <option value="0" {{ old('status') == '0' ? 'selected' : '' }}>Deactive</option>
                             </select>
                         </div>
                     </div>

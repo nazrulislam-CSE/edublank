@@ -11,12 +11,17 @@ class ExamDetail extends Model
 
     protected $guarded = [];
     
+    public function class(){
+        return $this->belongsTo(CourseClass::class);
+    }
+
     public function questions()
     {
-        return $this->hasMany('App\Models\Question');
+        return $this->hasMany(Question::class,'class_id','class_id');
     }
-    public function results()
-    {
-        return $this->hasMany('App\Models\Result');
-    }
+    
+    // public function results()
+    // {
+    //     return $this->hasMany('App\Models\Result');
+    // }
 }

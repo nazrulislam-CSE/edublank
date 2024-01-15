@@ -62,7 +62,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-12">
                         <label for="question_en">Question Name English: <span class="text-danger"></span></label>
                         @error('question_en') <span class="text-danger">{{ $message }}</span> @enderror
-                        <div class="input-group">
+                        <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Question Name English">
                             <span class="input-group-text" title="Question Name" id="basic-addon1"><i class="fas fa-tags"></i></span>
                             <input type="text" value="{{ $question->question_en }}" class=" form-control" name="question_en" placeholder="Your question Name english">
                         </div>
@@ -70,7 +70,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-12">
                         <label for="question_bn">Question Name Bangla: <span class="text-danger"></span></label>
                         @error('question_bn') <span class="text-danger">{{ $message }}</span> @enderror
-                        <div class="input-group">
+                        <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Question Name Bangla">
                             <span class="input-group-text" title="Question Name" id="basic-addon1"><i class="fas fa-tags"></i></span>
                             <input type="text" value="{{ $question->question_bn }}" class=" form-control" name="question_bn" placeholder="Your question Name bangla">
                         </div>
@@ -79,7 +79,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optiona_en">Options A English: <span class="text-danger"></span></label>
                         @error('optiona_en') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option A English">
                              <span class="input-group-text" title="Question A" id="basic-addon1"><i class="fas fa-building"></i></span>
                              <input type="text" value="{{ $question->optiona_en }}" class=" form-control" name="optiona_en" placeholder="Option A English">
                          </div>
@@ -87,7 +87,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                          <label for="optiona_en">Options A Bangla: <span class="text-danger"></span></label>
                          @error('optiona_bn') <span class="text-danger">{{ $message }}</span> @enderror
-                          <div class="input-group">
+                          <div class="input-group"data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option A Bangla">
                               <span class="input-group-text" title="Question A" id="basic-addon1"><i class="fas fa-building"></i></span>
                               <input type="text" value="{{ $question->optiona_bn }}" class=" form-control" name="optiona_bn" placeholder="Option A Bangla">
                           </div>
@@ -95,7 +95,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optionb_en">Options B English: <span class="text-danger"></span></label>
                         @error('optionb_en') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option B English">
                              <span class="input-group-text" title="Question B" id="basic-addon1"><i class="fas fa-building"></i></span>
                              <input type="text" value="{{ $question->optionb_en }}" class=" form-control" name="optionb_en" placeholder="Option B English">
                          </div>
@@ -103,7 +103,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optionb_bn">Options B Bangla: <span class="text-danger"></span></label>
                         @error('optionb_bn') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option B Bangla">
                              <span class="input-group-text" title="Question B" id="basic-addon1"><i class="fas fa-building"></i></span>
                              <input type="text" value="{{ $question->optionb_bn }}" class=" form-control" name="optionb_bn" placeholder="Option B Bangla">
                          </div>
@@ -111,7 +111,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optionc_en">Options C English: <span class="text-danger"></span></label>
                         @error('optionc_en') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option C English">
                              <span class="input-group-text" title="Question C" id="basic-addon1"><i class="fas fa-building"></i></span>
                              <input type="text" value="{{ $question->optionc_en }}" class=" form-control" name="optionc_en" placeholder="Option C English">
                          </div>
@@ -119,7 +119,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optionc_bn">Options C Bangla: <span class="text-danger"></span></label>
                         @error('optionc_bn') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option C Bangla">
                              <span class="input-group-text" title="Question C" id="basic-addon1"><i class="fas fa-building"></i></span>
                              <input type="text" value="{{ $question->optionc_bn }}" class=" form-control" name="optionc_bn" placeholder="Option C Bangla">
                          </div>
@@ -127,7 +127,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optiond_en">Options D English: <span class="text-danger"></span></label>
                         @error('optiond_en') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option D English">
                              <span class="input-group-text" title="Question D" id="basic-addon1"><i class="fas fa-building"></i></span>
                              <input type="text" value="{{ $question->optiond_en }}" class=" form-control" name="optiond_en" placeholder="Option D English">
                          </div>
@@ -135,7 +135,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="optiond_bn">Options D Bangla: <span class="text-danger"></span></label>
                         @error('optiond_bn') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Option D Bangla">
                              <span class="input-group-text" title="Question D" id="basic-addon1"><i class="fas fa-building"></i></span>
                              <input type="text" value="{{ $question->optiond_bn }}" class=" form-control" name="optiond_bn" placeholder="Option D Bangla">
                          </div>
@@ -144,7 +144,7 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="answer">Select Your Answer:</label>
                         @error('answer') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Select Your Answer">
                              <span class="input-group-text" title="Answer" id="basic-addon1"><i class="fas fa-user-tie"></i></span>
                              <select  name="answer" class=" form-control">
                               <option value="">Select Answer</option>
@@ -159,7 +159,7 @@
                      <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="types">Select Quiz Types:</label>
                         @error('types') <span class="text-danger">{{ $message }}</span> @enderror
-                         <div class="input-group">
+                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Select Quiz Types">
                              <span class="input-group-text" title="types" id="basic-addon1"><i class="fas fa-user-tie"></i></span>
                              <select  name="types" class=" form-control">
                               <option value="">Select Quiz Types</option>
@@ -173,33 +173,37 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="class_id">Class Name:</label>
                         @error('class_id') <span class="text-danger">{{ $message }}</span> @enderror
-                        <select name="class_id" class="select2 form-control">
-                            <option value="">Select Class</option>
-                            @foreach($classes as $class)
-                                <option value="{{ $class->id }}" @if($class->id == $question->class_id) selected @endif>
-                                    {{ $class->name_en }}
-                                </option>
-                            @endforeach
-                        </select>
+                        <div class="warp" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Select Class Name">
+                            <select name="class_id" class="select2 form-control">
+                                <option value="">Select Class</option>
+                                @foreach($classes as $class)
+                                    <option value="{{ $class->id }}" @if($class->id == $question->class_id) selected @endif>
+                                        {{ $class->name_en }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
 
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="subject_id">Subject Name:</label>
                         @error('subject_id') <span class="text-danger">{{ $message }}</span> @enderror
-                        <select name="subject_id" class="select2 form-control">
-                            <option value="">Select Subject</option>
-                            @foreach($subjects as $subject)
-                                <option value="{{ $subject->id }}"  @if($class->id == $question->subject_id) selected @endif>
-                                    {{ $subject->name_en }}
-                                </option>
-                            @endforeach
-                        </select>
+                        <div class="warp" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Select Subject Name">
+                            <select name="subject_id" class="select2 form-control">
+                                <option value="">Select Subject</option>
+                                @foreach($subjects as $subject)
+                                    <option value="{{ $subject->id }}"  @if($subject->id == $question->subject_id) selected @endif>
+                                        {{ $subject->name_en }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
               
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                        <label for="status">Status:</label>
                        @error('status') <span class="text-danger">{{ $message }}</span> @enderror
-                        <div class="input-group">
+                        <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Select Status">
                             <span class="input-group-text" title="Name" id="basic-addon1"><i class="fas fa-user-tie" title="Name"></i></span>
                             <select  name="status" class=" form-control">
                              <option value="">Select Status</option>

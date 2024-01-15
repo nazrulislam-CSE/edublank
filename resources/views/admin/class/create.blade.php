@@ -94,14 +94,16 @@
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                         <label for="subject_id">Subject Name:</label>
                         @error('subject_id') <span class="text-danger">{{ $message }}</span> @enderror
-                        <select name="subject_id" class="select2 form-control" multiple="multiple" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Subject Name">
-                            <option value="">Select Subject</option>
-                            @foreach($subjects as $subject)
-                                <option value="{{ $subject->id }}">
-                                    {{ $subject->name_en }}
-                                </option>
-                            @endforeach
-                        </select>
+                        <div class="wrap" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Subject Name">
+                            <select name="subject_id" class="select2 form-control" multiple="multiple" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Subject Name">
+                                <option value="">Select Subject</option>
+                                @foreach($subjects as $subject)
+                                    <option value="{{ $subject->id }}">
+                                        {{ $subject->name_en }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
                        <label for="status">Status:</label>

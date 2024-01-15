@@ -14,6 +14,11 @@ class Question extends Model
         return $this->belongsTo(Subject::class);
     }
 
+    public function exam()
+    {
+        return $this->belongsTo(ExamDetail::class, 'class_id', 'id');
+    }
+
     public function class(){
         return $this->belongsTo(CourseClass::class);
     }

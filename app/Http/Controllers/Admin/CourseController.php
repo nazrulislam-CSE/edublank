@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\CourseClass;
+use App\Models\Subject;
+use App\Models\ExamDetail;
 
 class CourseController extends Controller
 {
@@ -27,8 +30,11 @@ class CourseController extends Controller
     {
         $instructors = User::where('role','Instructor')->latest()->get();
         $categories = Category::all();
+        $classes = CourseClass::where('status',1)->latest()->get();
+        $subjects = Subject::where('status',1)->latest()->get();
+        $exams = ExamDetail::where('status',1)->latest()->get();
         $pageTitle = 'Course Create';
-        return view('admin.courses.create', compact('instructors', 'categories', 'pageTitle'));
+        return view('admin.courses.create', compact('instructors', 'categories','classes','subjects','exams', 'pageTitle'));
     }
 
     /**

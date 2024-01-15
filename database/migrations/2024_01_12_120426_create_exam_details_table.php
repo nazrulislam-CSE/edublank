@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('time')->nullable();
             $table->integer('totaltime')->nullable();
             $table->float('marks',8,2)->nullable();
+            $table->integer('subject_id')->nullable(); 
+            $table->integer('class_id')->nullable(); 
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->tinyInteger('status')->default(1)->comment('1=Active','0=Inactive'); 

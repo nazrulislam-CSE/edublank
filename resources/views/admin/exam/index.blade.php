@@ -63,6 +63,8 @@
                                         <tr>
                                             <th class="border-bottom-0">SL</th>
                                             <th class="border-bottom-0">Exam Title</th>
+                                            <th class="border-bottom-0">Class Name</th>
+                                            <th class="border-bottom-0">Subject Name</th>
                                             <th class="border-bottom-0">Exam Code</th>
                                             <th class="border-bottom-0">Exam Date</th>
                                             <th class="border-bottom-0">Exam Time</th>
@@ -77,6 +79,8 @@
                                         <tr>
                                             <td class="col-1">{{ $key+1 }}</td>
                                             <td>{{ $exam->title_en ?? 'Null'}}</td>
+                                            <td>{{ $exam->class->name_en ?? 'Null'}}</td>
+                                            <td>{{ $exam->class->subject->name_en ?? 'Null'}}</td>
                                             <td>{{ $exam->code ?? 'Null'}}</td>
                                             <td>{{ $exam->date ?? 'Null'}}</td>
                                             <td>{{ $exam->time ?? 'Null'}}</td>

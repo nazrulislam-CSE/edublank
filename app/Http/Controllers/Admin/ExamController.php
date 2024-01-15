@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ExamDetail;
+use App\Models\CourseClass;
 use Auth;
 
 class ExamController extends Controller
@@ -25,7 +26,8 @@ class ExamController extends Controller
     public function create()
     {
         $pageTitle = 'Exam Create';
-        return view('admin.exam.create',compact('pageTitle'));
+        $classes = CourseClass::where('status',1)->latest()->get();
+        return view('admin.exam.create',compact('pageTitle','classes'));
     }
 
     /**
@@ -42,6 +44,7 @@ class ExamController extends Controller
             'time' =>'required',
             'marks'   =>'required',
             'totaltime'     =>'required',
+            'class_id'     =>'required',
             'status'=>'required',
         ]);
 
@@ -54,6 +57,8 @@ class ExamController extends Controller
             'date'=> $request->date,
             'time'=> $request->time,
             'marks'=> $request->marks,
+            'totaltime'=> $request->totaltime,
+            'class_id'=> $request->class_id,
             'totaltime'=> $request->totaltime,
             'status' => $request->status,
             'created_by'        => $user_id,
@@ -81,7 +86,8 @@ class ExamController extends Controller
     {
         $pageTitle = 'Exam Edit';
         $exam = ExamDetail::find($id);
-        return view('admin.exam.edit',compact('pageTitle','exam'));
+        $classes = CourseClass::where('status',1)->latest()->get();
+        return view('admin.exam.edit',compact('pageTitle','exam','classes'));
     }
 
     /**
@@ -98,6 +104,7 @@ class ExamController extends Controller
         $exam->date = $request->date;
         $exam->time = $request->time;
         $exam->marks = $request->marks;
+        $exam->class_id = $request->class_id;
         $exam->totaltime = $request->totaltime;
         $exam->status = $request->status;
         $exam->updated_by = $user_id;
@@ -113,7 +120,7 @@ class ExamController extends Controller
      */
     public function destroy(string $id)
     {
-        $exam = Exam::find($id);
+        $exam = ExamDetail::find($id);
         $exam->delete();
 
         flash()->addError("Exam Deleted Successfully.");

@@ -91,7 +91,7 @@
                         @error('keywords') <span class="text-danger">{{ $message }}</span> @enderror
                             <div class="text-wrap" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Meta Keywords">
                                 <div class="example">
-                                <input type="text" name="keywords[]" data-role="tagsinput"  value="{{ old('keywords')}}" class="form-control" placeholder="Enter type meta keywords here">
+                                <input type="text" name="keywords[]" data-role="tagsinput"  value="{{ old('keywords')}}" class="form-control" placeholder="Enter type meta keywords here" required>
                             </div>
                         </div>
                     </div>

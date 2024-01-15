@@ -116,6 +116,23 @@
                          </div>
                     </div>
                     <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                        <label for="class_id">Class Name:</label>
+                        @error('class_id') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="wrap" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Class Name">
+                            <select name="class_id" class="select2 form-control">
+                                <option value="">Select Class</option>
+                                @foreach($classes as $class)
+                                    @php
+                                        $question_class = App\Models\Question::where('class_id',$class->id)->latest()->get();
+                                    @endphp
+                                    @foreach($question_class->unique('class_id') as $key=> $question)
+                                        <option value="{{ $question->class_id }}">{{ $question->class->name_en ?? 'Null'}}</option>
+                                    @endforeach
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xl-12 col-lg-6 col-md-6">
                        <label for="status">Status:</label>
                        @error('status') <span class="text-danger">{{ $message }}</span> @enderror
                         <div class="input-group" data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Status">

@@ -146,21 +146,21 @@
 
                                 @foreach($menuitems as $menuitem)
                                     @if(count($menuitem->subMenus)>0)
-                                    <li class="has-droupdown"><a href="#">{{$menuitem->title}}</a>
+                                    <li class="has-droupdown"><a href="#">{{$menuitem->title_en}}</a>
                                         <ul class="submenu">
                                             @foreach($menuitem->subMenus as $subMenu)
                                                 <li>
-                                                    <a href="{{url($subMenu->url)}}">{{$subMenu->title}}</a>
+                                                    <a href="{{url($subMenu->url)}}">{{$subMenu->title_en}}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
                                     </li>
                                     @else
-                                    <li class="has-droupdown"><a href="#">{{$menuitem->title}}</a>
+                                    <li class="has-droupdown"><a href="#">{{$menuitem->title_en}}</a>
                                         <ul class="submenu">
                                             @foreach($menuitem->subMenus as $subMenu)
                                                 <li>
-                                                    <a href="{{url($subMenu->url)}}">{{$subMenu->title}}</a>
+                                                    <a href="{{url($subMenu->url)}}">{{$subMenu->title_en}}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
