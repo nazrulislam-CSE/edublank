@@ -18,7 +18,7 @@ class InstructorController extends Controller
     {
         $pageTitle = 'Instructor List';
         $instructors = User::where('role', 'instructor')->get();
-        return view('admin.instructor.index', compact('instructors','pageTitle'));
+        return view('admin.instructor.index', compact('instructors', 'pageTitle'));
     }
 
     /**
@@ -27,7 +27,7 @@ class InstructorController extends Controller
     public function create()
     {
         $pageTitle = 'Instructor Create';
-        return view('admin.instructor.create',compact('pageTitle'));
+        return view('admin.instructor.create', compact('pageTitle'));
     }
 
     /**
@@ -37,11 +37,11 @@ class InstructorController extends Controller
     {
         // dd($request->all());
         $this->validate($request, [
-            'username' =>'required',
-            'email' =>'required|email',
+            'username' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
             'phone' => 'required',
-            'photo'=> 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ]);
 
 
@@ -65,9 +65,9 @@ class InstructorController extends Controller
 
         if ($request->file('photo')) {
             $file = $request->file('photo');
-            @unlink(public_path('upload/instructor/'.$instructor->photo));
-            $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('upload/instructor'),$filename);
+            @unlink(public_path('upload/instructor/' . $instructor->photo));
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('upload/instructor'), $filename);
             $instructor['image'] = $filename;
         }
 
@@ -76,7 +76,6 @@ class InstructorController extends Controller
         flash()->addSuccess("Instructor Created Successfully.");
         $url = '/admin/instructors/index';
         return redirect($url);
-
     }
 
     /**
@@ -123,19 +122,18 @@ class InstructorController extends Controller
         $instructor->save();
 
         if ($request->file('photo')) {
-            @unlink(public_path('upload/instructor/'.$instructor->photo));
+            @unlink(public_path('upload/instructor/' . $instructor->photo));
             $file = $request->file('photo');
-            $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('upload/instructor'),$filename);
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('upload/instructor'), $filename);
             $instructor['image'] = $filename;
         }
-           
+
 
         $instructor->save();
         flash()->addSuccess("Instructor Updated Successfully.");
         $url = '/admin/instructors/index';
         return redirect($url);
-    
     }
 
     /**
@@ -147,11 +145,10 @@ class InstructorController extends Controller
         $instructor->delete();
 
         try {
-            if(file_exists($instructor->image)){
+            if (file_exists($instructor->image)) {
                 unlink($instructor->image);
             }
         } catch (Exception $e) {
-
         }
 
         flash()->addError("Instructor Deleted Successfully.");

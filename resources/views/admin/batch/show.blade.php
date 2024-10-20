@@ -49,8 +49,8 @@
         <div class="card-header border-bottom d-flex justify-content-between align-items-center">
             <p class="card-title my-0">{{ $pageTitle ?? 'Page Title' }}</p>
             <div class="d-flex">
-                <a href="{{ route('admin.class.index') }}" class="btn btn-danger me-2">
-                    <i class="fas fa-list d-inline"></i> Class List
+                <a href="{{ route('admin.batch.index') }}" class="btn btn-danger me-2">
+                    <i class="fas fa-list d-inline"></i> batch List
                 </a>
             </div>
         </div>
@@ -58,53 +58,17 @@
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <tr>
-                        <td>Class Name English</td>
-                        <td>{{ $class->name_en ?? 'NULL' }}</td>
+                        <td>batch Name English</td>
+                        <td>{{ $batch->name_en ?? 'NULL' }}</td>
                     </tr>
                     <tr>
-                        <td>Class Name Bangla</td>
-                        <td>{{ $class->name_bn ?? 'NULL' }}</td>
-                    </tr>
-                    <tr>
-                        <td>Batch Name English</td>
-                        <td>{{ $class->batch->name_en ?? 'NULL' }}</td>
-                    </tr>
-                    <tr>
-                        <td>Batch Name Bangla</td>
-                        <td>{{ $class->batch->name_bn ?? 'NULL' }}</td>
-                    </tr>
-                    <tr>
-                        <td>Subject Name English</td>
-                        <td>{{ $class->subject->name_en ?? 'NULL' }}</td>
-                    </tr>
-                    <tr>
-                        <td>Subject Name Bangla</td>
-                        <td>{{ $class->subject->name_bn ?? 'NULL' }}</td>
-                    </tr>
-                    <tr>
-                        <td>Class Video</td>
-                        <td>{{ $class->video ?? 'NULL' }}</td>
-                    </tr>
-                    <tr>
-                        <td>Class Lecture Shit</td>
-                        <td>{{ $class->lecture_shit ?? 'NULL' }}</td>
-                    </tr>
-                    <tr>
-                        <td>Class Listening Voice </td>
-                        <td>{{ $class->listening_voice ?? 'NULL' }}</td>
-                    </tr>
-                    <tr>
-                        <td>Class Description English </td>
-                        <td>{{ $class->description_en ?? 'NULL' }}</td>
-                    </tr>
-                    <tr>
-                        <td>Class Description Bangla </td>
-                        <td>{{ $class->description_bn ?? 'NULL' }}</td>
+                        <td>batch Name Bangla</td>
+                        <td>{{ $batch->name_bn ?? 'NULL' }}</td>
                     </tr>
                     </tr>
                     <td>Status</td>
                     <td>
-                        @if ($class->status == 1)
+                        @if ($batch->status == 1)
                             <span class="badge bg-pill bg-success">Active</span>
                         @else
                             <span class="badge bg-pill bg-success">Disable</span>

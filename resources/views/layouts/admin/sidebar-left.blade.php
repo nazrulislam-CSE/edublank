@@ -2,44 +2,55 @@
 <div class="sticky">
     <aside class="app-sidebar sidebar-scroll">
         <div class="main-sidebar-header active">
-            <a class="desktop-logo logo-light active" href="{{ route('user.home') }}"><img src="{{ asset('dashboard/img/brand/logo.png') }}" class="main-logo" alt="logo"></a>
-            <a class="desktop-logo logo-dark active" href="{{ route('user.home') }}"><img src="{{ asset('dashboard/img/brand/logo-white.png') }}" class="main-logo" alt="logo"></a>
-            <a class="logo-icon mobile-logo icon-light active" href="{{ route('user.home') }}"><img src="{{ asset('dashboard/img/brand/favicon.png') }}" alt="logo"></a>
-            <a class="logo-icon mobile-logo icon-dark active" href="{{ route('user.home') }}"><img src="{{ asset('dashboard/img/brand/favicon-white.png') }}" alt="logo"></a>
+            <a class="desktop-logo logo-light active" href="{{ route('user.home') }}"><img
+                    src="{{ asset('dashboard/img/brand/logo.png') }}" class="main-logo" alt="logo"></a>
+            <a class="desktop-logo logo-dark active" href="{{ route('user.home') }}"><img
+                    src="{{ asset('dashboard/img/brand/logo-white.png') }}" class="main-logo" alt="logo"></a>
+            <a class="logo-icon mobile-logo icon-light active" href="{{ route('user.home') }}"><img
+                    src="{{ asset('dashboard/img/brand/favicon.png') }}" alt="logo"></a>
+            <a class="logo-icon mobile-logo icon-dark active" href="{{ route('user.home') }}"><img
+                    src="{{ asset('dashboard/img/brand/favicon-white.png') }}" alt="logo"></a>
         </div>
         <div class="main-sidemenu">
             <div class="main-sidebar-loggedin">
                 <div class="app-sidebar__user">
                     <div class="dropdown user-pro-body text-center">
                         <div class="user-pic">
-                            <img src="{{ (!empty( Auth::guard('admin')->user()->image)) ? url('upload/admin_images/'.Auth::guard('admin')->user()->image):url('upload/no_image.jpg') }}" alt="user-img" class="rounded-circle mCS_img_loaded">
+                            <img src="{{ !empty(Auth::guard('admin')->user()->image) ? url('upload/admin_images/' . Auth::guard('admin')->user()->image) : url('upload/no_image.jpg') }}"
+                                alt="user-img" class="rounded-circle mCS_img_loaded">
                         </div>
                         <div class="user-info">
                             <h6 class=" mb-0 text-dark">{{ Auth::guard('admin')->user()->name }}</h6>
-                            <span class="text-muted app-sidebar__user-name text-sm">{{ Auth::guard('admin')->user()->username }}</span>
+                            <span
+                                class="text-muted app-sidebar__user-name text-sm">{{ Auth::guard('admin')->user()->username }}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="sidebar-navs">
                 <ul class="nav  nav-pills-circle">
-                    <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Settings" aria-describedby="tooltip365540">
+                    <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                        data-bs-original-title="Settings" aria-describedby="tooltip365540">
                         <a class="nav-link text-center m-2">
                             <i class="fe fe-settings"></i>
                         </a>
                     </li>
-                    <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Chat" aria-describedby="tooltip143427">
+                    <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                        data-bs-original-title="Chat" aria-describedby="tooltip143427">
                         <a class="nav-link text-center m-2">
                             <i class="fe fe-mail"></i>
                         </a>
                     </li>
-                    <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Followers">
+                    <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                        data-bs-original-title="Followers">
                         <a class="nav-link text-center m-2">
                             <i class="fe fe-user"></i>
                         </a>
                     </li>
-                    <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Logout">
-                        <a class="nav-link text-center m-2" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                        data-bs-original-title="Logout">
+                        <a class="nav-link text-center m-2" href="{{ route('admin.logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fe fe-power"></i>
                         </a>
 
@@ -50,13 +61,16 @@
                 </ul>
             </div>
             <div class="slide-left disabled" id="slide-left">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24"
+                    viewBox="0 0 24 24">
                     <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" />
                 </svg>
             </div>
             <ul class="side-menu ">
                 <li class="slide">
-                    <a class="side-menu__item {{ Request::is('admin/dashboard') ? 'active' : '' }}" href="{{ route('admin.admin.home') }}"><i class="side-menu__icon fe fe-airplay"></i><span class="side-menu__label">Dashboard</span></a>
+                    <a class="side-menu__item {{ Request::is('admin/dashboard') ? 'active' : '' }}"
+                        href="{{ route('admin.admin.home') }}"><i class="side-menu__icon fe fe-airplay"></i><span
+                            class="side-menu__label">Dashboard</span></a>
                 </li>
 
                 <li class="slide {{ Request::is('admin/abouts*') ? 'is-expanded' : '' }}">
@@ -69,29 +83,37 @@
 
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">About Us</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/abouts/create') ? 'active' : '' }}" href="{{ route('admin.about.create')}}">About Us Add</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/abouts/index') ? 'active' : '' }}" href="{{ route('admin.about.index')}}">About Us List</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/abouts/create') ? 'active' : '' }}"
+                                href="{{ route('admin.about.create') }}">About Us Add</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/abouts/index') ? 'active' : '' }}"
+                                href="{{ route('admin.about.index') }}">About Us List</a></li>
                     </ul>
                 </li>
 
                 <li class="slide {{ Request::is('admin/sections*') ? 'is-expanded' : '' }}">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Sections</span>
-                        <i class="angle fe fe-chevron-down"></i>  <span class="badge bg-danger side-badge">5</span></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i
+                            class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Sections</span>
+                        <i class="angle fe fe-chevron-down"></i> <span class="badge bg-danger side-badge">5</span></a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Sections</a></li>
-                        <li><a class="slide-item {{ Request::is('admin/sections/create') ? 'active' : '' }}" href="{{ route('admin.section.create')}}">Section Add</a></li>
-                        <li><a class="slide-item {{ Request::is('admin/sections/index') ? 'active' : '' }}" href="{{ route('admin.section.index')}}">Section List</a></li>
+                        <li><a class="slide-item {{ Request::is('admin/sections/create') ? 'active' : '' }}"
+                                href="{{ route('admin.section.create') }}">Section Add</a></li>
+                        <li><a class="slide-item {{ Request::is('admin/sections/index') ? 'active' : '' }}"
+                                href="{{ route('admin.section.index') }}">Section List</a></li>
                     </ul>
                 </li>
 
                 <li class="slide {{ Request::is('admin/categories*') ? 'is-expanded' : '' }}">
                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
                         <i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Category</span>
-                        <i class="angle fe fe-chevron-down"></i> <span class="badge bg-success side-badge">5</span></a>
+                        <i class="angle fe fe-chevron-down"></i> <span
+                            class="badge bg-success side-badge">5</span></a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Category</a></li>
-                        <li><a class="slide-item {{ Request::is('admin/categories/create') ? 'active' : '' }}" href="{{ route('admin.category.create')}}">Category Add</a></li>
-                        <li><a class="slide-item {{ Request::is('admin/categories/index') ? 'active' : '' }}" href="{{ route('admin.category.index')}}">Category List</a></li>
+                        <li><a class="slide-item {{ Request::is('admin/categories/create') ? 'active' : '' }}"
+                                href="{{ route('admin.category.create') }}">Category Add</a></li>
+                        <li><a class="slide-item {{ Request::is('admin/categories/index') ? 'active' : '' }}"
+                                href="{{ route('admin.category.index') }}">Category List</a></li>
                     </ul>
                 </li>
 
@@ -103,10 +125,24 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Menu Builder</a></li>
-                        <li><a class="slide-item {{ Request::is('admin/menuBuilder') ? 'active' : '' }}" href="{{ route('admin.menuBuilder')}}">Mange Menu Builder</a></li>
+                        <li><a class="slide-item {{ Request::is('admin/menuBuilder') ? 'active' : '' }}"
+                                href="{{ route('admin.menuBuilder') }}">Mange Menu Builder</a></li>
                     </ul>
                 </li>
-
+                <li class="slide {{ Request::is('admin/batch*') ? 'is-expanded' : '' }}">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                        <i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Batch</span>
+                        <i class="angle fe fe-chevron-down"></i>
+                        <span class="badge bg-success side-badge">5</span>
+                    </a>
+                    <ul class="slide-menu">
+                        <li class="side-menu__label1"><a href="javascript:void(0);">Batch</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/batch/create') ? 'active' : '' }}"
+                                href="{{ route('admin.batch.create') }}">Batch Add</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/batch/index') ? 'active' : '' }}"
+                                href="{{ route('admin.batch.index') }}">Batch List</a></li>
+                    </ul>
+                </li>
                 <li class="slide {{ Request::is('admin/subjects*') ? 'is-expanded' : '' }}">
                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
                         <i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Subjects</span>
@@ -115,8 +151,10 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Subject</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/subject/create') ? 'active' : '' }}" href="{{ route('admin.subject.create')}}">Subject Add</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/subject/index') ? 'active' : '' }}" href="{{ route('admin.subject.index')}}">Subject List</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/subject/create') ? 'active' : '' }}"
+                                href="{{ route('admin.subject.create') }}">Subject Add</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/subject/index') ? 'active' : '' }}"
+                                href="{{ route('admin.subject.index') }}">Subject List</a></li>
                     </ul>
                 </li>
 
@@ -128,8 +166,10 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Class</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/class/create') ? 'active' : '' }}" href="{{ route('admin.class.create')}}">Class Add</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/class/index') ? 'active' : '' }}" href="{{ route('admin.class.index')}}">Class List</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/class/create') ? 'active' : '' }}"
+                                href="{{ route('admin.class.create') }}">Class Add</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/class/index') ? 'active' : '' }}"
+                                href="{{ route('admin.class.index') }}">Class List</a></li>
                     </ul>
                 </li>
 
@@ -142,8 +182,10 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Questions</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/question/create') ? 'active' : '' }}" href="{{ route('admin.question.create')}}">Question Add</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/question/index') ? 'active' : '' }}" href="{{ route('admin.question.index')}}">Question List</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/question/create') ? 'active' : '' }}"
+                                href="{{ route('admin.question.create') }}">Question Add</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/question/index') ? 'active' : '' }}"
+                                href="{{ route('admin.question.index') }}">Question List</a></li>
                     </ul>
                 </li>
 
@@ -156,8 +198,10 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Exam</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/exam/create') ? 'active' : '' }}" href="{{ route('admin.exam.create')}}">Exam Add</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/exam/index') ? 'active' : '' }}" href="{{ route('admin.exam.index')}}">Exam List</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/exam/create') ? 'active' : '' }}"
+                                href="{{ route('admin.exam.create') }}">Exam Add</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/exam/index') ? 'active' : '' }}"
+                                href="{{ route('admin.exam.index') }}">Exam List</a></li>
                     </ul>
                 </li>
 
@@ -171,8 +215,10 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Course</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/course/create') ? 'active' : '' }}" href="{{ route('admin.course.create')}}">Course Add</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/course/index') ? 'active' : '' }}" href="{{ route('admin.course.index')}}">Course List</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/course/create') ? 'active' : '' }}"
+                                href="{{ route('admin.course.create') }}">Course Add</a></li>
+                        <li><a class="slide-item{{ Request::is('admin/course/index') ? 'active' : '' }}"
+                                href="{{ route('admin.course.index') }}">Course List</a></li>
                     </ul>
                 </li>
 
@@ -212,8 +258,10 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Instructors</a></li>
-                        <li><a class="slide-item {{ Request::is('admin/instructors/create') ? 'active' : '' }}" href="{{ route('admin.instructor.create')}}">Instructors Add</a></li>
-                        <li><a class="slide-item {{ Request::is('admin/instructors/create') ? 'active' : '' }}" href="{{ route('admin.instructor.index')}}">Instructors List</a></li>
+                        <li><a class="slide-item {{ Request::is('admin/instructors/create') ? 'active' : '' }}"
+                                href="{{ route('admin.instructor.create') }}">Instructors Add</a></li>
+                        <li><a class="slide-item {{ Request::is('admin/instructors/create') ? 'active' : '' }}"
+                                href="{{ route('admin.instructor.index') }}">Instructors List</a></li>
                     </ul>
                 </li>
 
@@ -225,8 +273,10 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Pages</a></li>
-                        <li><a class="slide-item {{ Request::is('admin/pages/create') ? 'active' : '' }}" href="{{ route('admin.page.create')}}">Pages Add</a></li>
-                        <li><a class="slide-item {{ Request::is('admin/pages/index') ? 'active' : '' }}" href="{{ route('admin.page.index')}}">Pages List</a></li>
+                        <li><a class="slide-item {{ Request::is('admin/pages/create') ? 'active' : '' }}"
+                                href="{{ route('admin.page.create') }}">Pages Add</a></li>
+                        <li><a class="slide-item {{ Request::is('admin/pages/index') ? 'active' : '' }}"
+                                href="{{ route('admin.page.index') }}">Pages List</a></li>
                     </ul>
                 </li>
 
@@ -290,7 +340,8 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu__label1"><a href="javascript:void(0);">Advance Settings</a></li>
-                        <li><a class="slide-item {{ Request::is('admin/settings/index') ? 'active' : '' }}" href="{{ route('admin.settings.index')}}">Manage Setting</a></li>
+                        <li><a class="slide-item {{ Request::is('admin/settings/index') ? 'active' : '' }}"
+                                href="{{ route('admin.settings.index') }}">Manage Setting</a></li>
                         <li><a class="slide-item" href="#">Manage Seo</a></li>
                         <li><a class="slide-item" href="#">Manage Color</a></li>
                         <li><a class="slide-item" href="#">Payment Gateway</a></li>
@@ -300,7 +351,8 @@
             </ul>
 
             <div class="slide-right" id="slide-right">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24"
+                    viewBox="0 0 24 24">
                     <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z" />
                 </svg>
             </div>

@@ -49,11 +49,11 @@
                 <div class="card">
                     <div class="card-header border-bottom d-flex justify-content-between align-items-center">
                         <p class="card-title my-0">{{ $pageTitle ?? 'Page Title' }} <span class="badge bg-danger side-badge"
-                                style="font-size:17px;">{{ count($classes) }}</span> </p>
+                                style="font-size:17px;">{{ count($batches) }}</span> </p>
 
                         <div class="d-flex">
-                            <a href="{{ route('admin.class.create') }}" class="btn btn-success me-2">
-                                <i class="fas fa-list d-inline"></i> Add Now Class
+                            <a href="{{ route('admin.batch.create') }}" class="btn btn-success me-2">
+                                <i class="fas fa-list d-inline"></i> Add Now batch
                             </a>
                         </div>
                     </div>
@@ -66,33 +66,29 @@
                                         <th class="border-bottom-0">SL</th>
                                         <th class="border-bottom-0">Name English</th>
                                         <th class="border-bottom-0">Name Bangla</th>
-                                        <th class="border-bottom-0">Batch Name</th>
-                                        <th class="border-bottom-0">Subject Name</th>
                                         <th class="border-bottom-0">Status</th>
                                         <th class="border-bottom-0">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($classes as $key => $class)
+                                    @foreach ($batches as $key => $batch)
                                         <tr>
                                             <td class="col-1">{{ $key + 1 }}</td>
-                                            <td>{{ $class->name_en ?? 'Null' }}</td>
-                                            <td>{{ $class->name_bn ?? 'Null' }}</td>
-                                            <td>{{ $class->batch->name_en ?? 'Null' }}</td>
-                                            <td>{{ $class->subject->name_en ?? 'Null' }}</td>
+                                            <td>{{ $batch->name_en ?? 'Null' }}</td>
+                                            <td>{{ $batch->name_bn ?? 'Null' }}</td>
                                             <td>
-                                                @if ($class->status == 1)
+                                                @if ($batch->status == 1)
                                                     <a href="#" class="badge bg-pill bg-success">Active</a>
                                                 @else
                                                     <a href="#" class="badge bg-pill bg-danger">Disable</a>
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.class.show', $class->id) }}"
+                                                <a href="{{ route('admin.batch.show', $batch->id) }}"
                                                     class="btn btn-success btn-sm mr-2"><i class="fas fa-eye"></i></a>
-                                                <a href="{{ route('admin.class.edit', $class->id) }}"
+                                                <a href="{{ route('admin.batch.edit', $batch->id) }}"
                                                     class="btn btn-primary btn-sm mr-2"><i class="fas fa-edit"></i></a>
-                                                <a href="{{ route('admin.class.delete', $class->id) }}"
+                                                <a href="{{ route('admin.batch.delete', $batch->id) }}"
                                                     class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i
                                                         class="fa fa-trash"></i></a>
                                             </td>

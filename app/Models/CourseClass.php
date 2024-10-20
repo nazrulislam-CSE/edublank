@@ -11,8 +11,13 @@ class CourseClass extends Model
 
     protected $guarded = [];
 
-    public function subject(){
+    public function subject()
+    {
         return $this->belongsTo(Subject::class);
+    }
+    public function batch()
+    {
+        return $this->belongsTo(Batch::class);
     }
 
     // public function get_course(){

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username');
-            $table->enum('role', ['user','instructor'])->default('user')->comment('1=>Instructor, 2=>User');
+            $table->enum('role', ['user', 'instructor'])->default('user')->comment('1=>Instructor, 2=>User');
             $table->string('email');
             $table->unsignedBigInteger('phone')->nullable();
             $table->string('image')->default('user.png')->nullable();
