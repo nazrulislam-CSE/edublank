@@ -10,9 +10,14 @@ class Course extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function category(){
-        return $this->belongsTo(Category::class, 'id');
-    } 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id'); // Correct relationship
+    }
+    public function instructor()
+    {
+        return $this->belongsTo(User::class, 'instructor_id'); // Correct relationship
+    }
     
     public function user()
     {

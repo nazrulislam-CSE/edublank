@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('instructor_id');
             $table->integer('class_id');
             $table->integer('subject_id');
-            $table->string('image')->nullable();
+            $table->string('course_image')->nullable();
             $table->string('name_en')->nullable();
             $table->string('name_bn')->nullable();
             $table->string('title_en')->nullable();
@@ -40,7 +40,10 @@ return new class extends Migration
             $table->string('featured')->nullable();
             $table->string('highestrated')->nullable();
             $table->string('promo_code', 50)->nullable();
+            $table->integer('type')->nullable();
             $table->tinyInteger('status')->default(0)->comment('1=Active','0=Inactive'); 
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }
