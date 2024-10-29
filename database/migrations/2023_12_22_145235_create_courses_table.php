@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('category_id');
             $table->integer('instructor_id');
+            $table->integer('batch_id')->nullable();
             $table->integer('class_id');
             $table->integer('subject_id');
             $table->string('course_image')->nullable();

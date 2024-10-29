@@ -8,8 +8,9 @@ use App\Models\Course;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\CourseClass;
+use App\Models\Batch;
 use App\Models\Subject;
-use App\Models\ExamDetail;
+use App\Models\Exam;
 use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
@@ -31,11 +32,12 @@ class CourseController extends Controller
     {
         $instructors = User::where('role','Instructor')->latest()->get();
         $categories = Category::all();
+        $batches = Batch::where('status', 1)->latest()->get();
         $classes = CourseClass::where('status',1)->latest()->get();
         $subjects = Subject::where('status',1)->latest()->get();
-        $exams = ExamDetail::where('status',1)->latest()->get();
+        $exams = Exam::where('status',1)->latest()->get();
         $pageTitle = 'Course Create';
-        return view('admin.courses.create', compact('instructors', 'categories','classes','subjects','exams', 'pageTitle'));
+        return view('admin.courses.create', compact('batches','instructors', 'categories','classes','subjects','exams', 'pageTitle'));
     }
 
     /**
@@ -59,6 +61,7 @@ class CourseController extends Controller
             'status' => 'required|boolean',
             'category_id' => 'required|integer',
             'instructor_id' => 'required|integer',
+            'batch_id' => 'required',
             'class_id' => 'required|integer',
             'subject_id' => 'required|integer',
             'type' => 'required|integer',
@@ -90,6 +93,7 @@ class CourseController extends Controller
         $course->status = $request->status;
         $course->category_id = $request->category_id;
         $course->instructor_id = $request->instructor_id;
+        $course->batch_id = $request->batch_id;
         $course->class_id = $request->class_id;
         $course->subject_id = $request->subject_id;
         $course->type = $request->type;
@@ -168,6 +172,7 @@ class CourseController extends Controller
             'status' => 'required|boolean',
             'category_id' => 'required|integer',
             'instructor_id' => 'required|integer',
+            'batch_id' => 'required',
             'class_id' => 'required|integer',
             'subject_id' => 'required|integer',
             'type' => 'required|integer',
@@ -199,6 +204,7 @@ class CourseController extends Controller
         $course->status = $request->status;
         $course->category_id = $request->category_id;
         $course->instructor_id = $request->instructor_id;
+        $course->batch_id = $request->batch_id;
         $course->class_id = $request->class_id;
         $course->subject_id = $request->subject_id;
         $course->type = $request->type;

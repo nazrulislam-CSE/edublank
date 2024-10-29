@@ -25,3 +25,4 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.home');
 /* =========> End Frontend All Routes <========== */
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

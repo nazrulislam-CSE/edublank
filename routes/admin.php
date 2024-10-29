@@ -162,11 +162,16 @@ Route::middleware('admin')->group(function () {
     Route::prefix('questions')->group(function () {
         Route::get('/index', [QuestionController::class, 'index'])->name('question.index');
         Route::get('/create', [QuestionController::class, 'create'])->name('question.create');
-        Route::post('/store', [QuestionController::class, 'store'])->name('question.store');
+        Route::post('/store/{id}', [QuestionController::class, 'store'])->name('question.store');
+
         Route::get('/edit/{id}', [QuestionController::class, 'edit'])->name('question.edit');
         Route::post('/update/{id}', [QuestionController::class, 'update'])->name('question.update');
         Route::get('/delete/{id}', [QuestionController::class, 'destroy'])->name('question.delete');
         Route::get('/show/{id}', [QuestionController::class, 'show'])->name('question.show');
+
+        // ashraful 
+         
+        Route::get('/exams/{exam}/questions/insert', [QuestionController::class, 'insert'])->name('questions.insert');
     });
 
     /* ============> Exam <=========== */

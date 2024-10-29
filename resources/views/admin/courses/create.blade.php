@@ -251,7 +251,24 @@
                                     </select>
                                 </div>
                             </div>
-
+                            <div class="form-group col-xl-12 col-lg-12 col-md-12">
+                                <label for="batch_id">Batch Name:</label>
+                                @error('batch_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                                <div class="wrap" data-bs-placement="top" data-bs-toggle="tooltip-primary"
+                                    title="Batch Name">
+                                    <select name="batch_id" class="select2 form-control" multiple="multiple"
+                                        data-bs-placement="top" data-bs-toggle="tooltip-primary" title="Batch Name">
+                                        <option value="">Select Batch</option>
+                                        @foreach ($batches as $batch)
+                                            <option value="{{ $batch->id }}">
+                                                {{ $batch->name_en }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group col-xl-6 col-lg-6 col-md-6">
                                 <label for="class_id">Class Name:</label>
                                 @error('class_id')
