@@ -52,8 +52,8 @@
                             class="badge bg-success side-badge">
                             {{ $exam->id }}</span></p>
                     <div class="d-flex">
-                        <a href="{{ route('admin.question.index') }}" class="btn btn-danger me-2">
-                            <i class="fas fa-list d-inline"></i> Question List
+                        <a href="{{ route('admin.exam.index') }}" class="btn btn-danger me-2">
+                            <i class="fas fa-list d-inline"></i> Exam List
                         </a>
                     </div>
                 </div>
@@ -61,6 +61,8 @@
                     <form action="{{ route('admin.question.store', $exam->id) }}" method="POST"
                         onsubmit="return validateForm()">
                         @csrf
+
+                        <input type="hidden" name="exam_id" value="{{ $exam->id }}">
                         <div class="form-group">
                             <label for="question_count" class="text-success">Number of Questions *:</label>
                             <input type="number" name="question_count" id="question_count"

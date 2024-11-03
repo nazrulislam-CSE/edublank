@@ -184,8 +184,7 @@
                         <li class="side-menu__label1"><a href="javascript:void(0);">Questions</a></li>
                         <li><a class="slide-item{{ Request::is('admin/question/create') ? 'active' : '' }}"
                                 href="{{ route('admin.question.create') }}">Question Add</a></li>
-                        <li><a class="slide-item{{ Request::is('admin/question/index') ? 'active' : '' }}"
-                                href="{{ route('admin.question.index') }}">Question List</a></li>
+
                     </ul>
                 </li>
 

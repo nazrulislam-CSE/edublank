@@ -15,11 +15,11 @@ class QuestionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+    public function index(Exam $exam)
+    { 
         $pageTitle = 'Question List';
-        $questions = Question::latest()->get();
-        return view('admin.question.index',compact('pageTitle', 'questions'));
+        $questions = $exam->questions;
+        return view('admin.question.index',compact('pageTitle','exam', 'questions'));
     }
 
     /**
@@ -33,7 +33,11 @@ class QuestionController extends Controller
         return view('admin.question.create',compact('pageTitle','subjects','classes'));
     }
     public function insert(Exam $exam)
-    {
+    {   
+        if ($exam->questions()->exists()) {   
+         return redirect()->back()->with('warning', 'Already Question Created.');
+        }
+        $exam = Exam::find($exam->id);
         $pageTitle = 'Question Create';
         $subjects = Subject::where('status',1)->latest()->get();
         $classes = CourseClass::where('status',1)->latest()->get();
@@ -43,16 +47,17 @@ class QuestionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-       
-
-        dd($id);
+        // Validate request
         $request->validate([
             'questions.*.question_text' => 'required|string',
             'questions.*.answers' => 'required|array',
             'questions.*.correct_answer' => 'required|integer|min:0|max:3',
         ]);
+    
+        // Retrieve the Exam instance
+        $exam = Exam::findOrFail($request->exam_id);
     
         // Loop through each question
         foreach ($request->questions as $questionData) {
@@ -60,17 +65,19 @@ class QuestionController extends Controller
             $question = $exam->questions()->create([
                 'question_text' => $questionData['question_text'],
             ]);
+    
             foreach ($questionData['answers'] as $index => $answerText) {
                 // Determine if this answer is the correct one
                 $isCorrect = $index == $questionData['correct_answer'];
-
+    
                 $question->answers()->create([
                     'answer_text' => $answerText,
                     'is_correct' => $isCorrect,
                 ]);
             }
         }
-        return redirect()->route('questions.index', $exam);
+    
+        return redirect()->route('admin.question.index', $exam);
     }
 
 
@@ -91,7 +98,7 @@ class QuestionController extends Controller
     public function edit(string $id)
     {
         $pageTitle = 'Question Edit';
-        $question = Question::find($id);
+        $question = Question::with('answers')->find($id);
         $subjects = Subject::where('status',1)->latest()->get();
         $classes = CourseClass::where('status',1)->latest()->get();
         return view('admin.question.edit',compact('pageTitle','question','subjects','classes'));
@@ -100,32 +107,30 @@ class QuestionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        $user_id = Auth::guard('admin')->user()->id;
-
+        $request->validate([
+            'question_text' => 'required|string',
+            'answers' => 'required|array|min:4',
+            'answers.*' => 'required|string',
+            'correct_answer' => 'required|integer|min:0|max:3',
+        ]);
+    
         $question = Question::find($id);
-        $question->question_en = $request->question_en;
-        $question->question_bn = $request->question_bn;
-        $question->optiona_en = $request->optiona_en;
-        $question->optiona_bn = $request->optiona_bn;
-        $question->optionb_en = $request->optiona_en;
-        $question->optionb_bn = $request->optiona_bn;
-        $question->optionc_en = $request->optiona_en;
-        $question->optionc_bn = $request->optiona_bn;
-        $question->optiond_en = $request->optiona_en;
-        $question->optiond_bn = $request->optiona_bn;
-        $question->answer = $request->answer;
-        $question->class_id = $request->class_id;
-        $question->subject_id = $request->subject_id;
-        $question->types = $request->types;
-        $question->status = $request->status;
-        $question->updated_by = $user_id;
+        if (!$question) {
+            return redirect()->route('exams.index')->with('error', 'Question not found');
+        }
+    
+        $question->question_text = $request->question_text;
         $question->save();
-
-        flash()->addSuccess("Question Updated Successfully.");
-        $url = '/admin/questions/index';
-        return redirect($url);
+    
+        foreach ($question->answers as $index => $answer) {
+            $answer->answer_text = $request->answers[$index];
+            $answer->is_correct = ($index == $request->correct_answer);
+            $answer->save();
+        }
+    
+        return redirect()->back()->with('success', 'Question updated successfully');
     }
 
     /**
@@ -133,11 +138,15 @@ class QuestionController extends Controller
      */
     public function destroy(string $id)
     {
-        $question = Question::find($id);
-        $question->delete();
-
-        flash()->addError("Question Deleted Successfully.");
-        $url = '/admin/question/index';
-        return redirect($url);
+      
+    $question = Question::find($id);
+    
+    if (!$question) {
+       
+        return redirect()->back()->with('error', 'Question not found.');
+    }
+    $question->userAnswers()->delete();
+    $question->delete();
+    return redirect()->back()->with('success', 'Question deleted successfully.');
     }
 }

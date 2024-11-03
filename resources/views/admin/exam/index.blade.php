@@ -1,5 +1,4 @@
 @extends('layouts.admin.app', [$pageTitle => 'Page Title'])
-
 @section('content')
     <div class="breadcrumb-header justify-content-between">
         <div class="d-flex align-items-center">
@@ -90,13 +89,12 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="" class="btn btn-danger btn-sm mt-1">Total QS</a>
+                                                <a href="{{ route('admin.question.index', $exam->id) }}"
+                                                    class="btn btn-danger btn-sm mt-1">Total QS</a>
                                                 <a href="{{ route('admin.questions.insert', $exam->id) }}"
-                                                    class="btn btn-warning btn-sm mt-1" id="questionButton">Add Question</a>
+                                                    class="btn btn-warning btn-sm mt-1" id="questionButton">Add QS</a>
                                                 <a href="" class="btn btn-secondary btn-sm mt-1"
                                                     id="questionButton">Result</a>
-                                                <a href="{{ route('admin.exam.show', $exam->id) }}"
-                                                    class="btn btn-success btn-sm mr-2"><i class="fas fa-eye"></i></a>
                                                 <a href="{{ route('admin.exam.edit', $exam->id) }}"
                                                     class="btn btn-primary btn-sm mr-2"><i class="fas fa-edit"></i></a>
                                                 <a href="{{ route('admin.exam.delete', $exam->id) }}"

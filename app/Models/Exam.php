@@ -22,15 +22,27 @@ class Exam extends Model
     {
         return $this->hasMany(Question::class);
     }
-    
-    // public function results()
-    // {
-    //     return $this->hasMany('App\Models\Result');
-    // }
+   
 
+    public function userAnswers()
+    {
+        return $this->hasMany(UserAnswer::class);
+    }
 
+        public function completed_by_user($userId)
+    {
+        return UserAnswer::where('user_id', $userId)
+                        ->where('exam_id', $this->id)
+                        ->exists();
+    }
+
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class, 'subject_id');
+    }
     protected $casts = [
         'start_time' => 'datetime',
         'end_time' => 'datetime',
     ];
+
 }
